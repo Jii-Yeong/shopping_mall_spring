@@ -11,11 +11,6 @@ import org.springframework.stereotype.Repository;
 public class MallDao {
 	private JdbcTemplate jdbcTemplate;
 	
-	@Autowired
-	public MallDao(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
-	
 	public List<Map<String, Object>> getCount() {
 		return jdbcTemplate.queryForList("SELECT * FROM product_upload");
 	}
