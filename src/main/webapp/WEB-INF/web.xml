@@ -26,6 +26,7 @@
 	</servlet>
 	
 	<servlet>
+		<!-- jdbc -->
 	    <servlet-name>ConnectionProvider</servlet-name>
 	    <servlet-class>jdbc.ConnectionProvider</servlet-class>
 	    <init-param>
