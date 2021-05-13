@@ -17,7 +17,7 @@ import kr.co.shopping_mall.dao.ProductDao;
 //패키지 스캔
 @ComponentScan("kr.co.greenart")
 //프로퍼티 파일 경로
-@PropertySource("classpath:/kr/co/greenart/config/mysql.properties")
+@PropertySource("classpath:/kr/co/shopping_mall/config/mysql.properties")
 public class DBConfig {
 
 	@Value("${mysql.driverClassName}")
@@ -50,6 +50,7 @@ public class DBConfig {
 	public ProductDao productDao(JdbcTemplate jdbcTemplate) {
 		return new ProductDao(jdbcTemplate);
 	}
+	
 }
 
 	
