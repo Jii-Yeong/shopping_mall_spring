@@ -4,42 +4,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리</title>
+<title>상품 관리</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/manage-upload.css">
 </head>
 <body>
 <div class="form">
-<h1>회원 관리</h1>
+<h1>상품 관리</h1>
 <div class="container">
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th>회 원 번 호</th>
-				<th>아 이 디</th>
-				<th>이 름</th>
-				<th>생 년 월 일</th>
-				<th>전 화 번 호</th>
-				<th>주 소</th>
-				<th>가 입 날 짜</th>
-				<th>회 원 등 급</th>
-				<th>회 원 수 정</th>
-				<th>회 원 삭 제</th>
+				<th>상 품 번 호</th>
+				<th>상 품 명</th>
+				<th>사 진 1</th>
+				<th>사 진 2</th>
+				<th>사 진 3</th>
+				<th>금 액</th>
+				<th>상 세 설 명</th>
+				<th>상 품 수 정</th>
+				<th>상 품 삭 제</th>
 	      </tr>
       </thead>
-	<c:forEach var="user_list" items="${ user_list }">
+	<c:forEach var="product_list" items="${ product_list }">
       <tbody>
    		<tr>
-   			<td>${user_list.user_num}</td>
-   			<td>${user_list.id}</td>
-   			<td>${user_list.name}</td>
-   			<td>${user_list.birth}</td>
-   			<td>${user_list.phone_num}</td>
-   			<td>${user_list.address}</td>
-   			<td>${user_list.join_date}</td>
-   			<td>${user_list.grade}</td>
-   			<td><a href="manage-user.jsp?user_list.id=${ user_list.user_num }">[ 수정 ]</a></td>
-   			<td><a href="manage-user.jsp?user_list.id=${ user_list.user_num }">[ 삭제 ]</a></td>
+   			<td>${product.product_id}</td>
+   			<td>${product.name}</td>
+   			<td>${product.photo_1}</td>
+   			<td>${product.photo_2}</td>
+   			<td>${product.photo_3}</td>
+   			<td>${product.price}</td>
+   			<td>${product.description}</td>
+   			<td><a href="manage-user.jsp?product.id=${ user_list.user_num }">[ 수정 ]</a></td>
+   			<td><a href="manage-user.jsp?product.id=${ user_list.user_num }">[ 삭제 ]</a></td>
     	</tr>
       </tbody>
       </c:forEach>

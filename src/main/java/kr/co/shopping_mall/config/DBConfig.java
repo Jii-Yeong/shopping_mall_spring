@@ -12,7 +12,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import kr.co.shopping_mall.dao.ProductDao;
+import kr.co.shopping_mall.dao.UserDao;
 import kr.co.shopping_mall.dao.ReviewDAO;
+
 
 @Configuration
 //패키지 스캔
@@ -49,6 +51,12 @@ public class DBConfig {
 	@Autowired
 	public ProductDao productDao(JdbcTemplate jdbcTemplate) {
 		return new ProductDao(jdbcTemplate);
+	}
+	
+	@Bean
+	@Autowired
+	public UserDao userDao(JdbcTemplate jdbcTemplate) {
+		return new UserDao(jdbcTemplate);
 	}
 	
 	@Bean
