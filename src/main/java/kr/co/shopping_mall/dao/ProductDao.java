@@ -41,4 +41,5 @@ public class ProductDao {
 	public int addProduct(Product product) {
 		return jdbcTemplate.update("INSERT INTO product_upload(name, photo_1, photo_2, photo_3, price, description) VALUES (?, ?, ?, ?, ?, ?)", product.getName(), product.getPhoto_1(), product.getPhoto_2(), product.getPhoto_3(), product.getPrice(), product.getDescription());
 	}
+	
 }
