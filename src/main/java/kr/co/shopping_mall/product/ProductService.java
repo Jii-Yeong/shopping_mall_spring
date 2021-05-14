@@ -14,4 +14,7 @@ public class ProductService {
 	public List<Product> readAll() {
 		return dao.readAllProduct();
 	}
+	public int add(Product product) {
+		return dao.addProduct(product);
+	}
 }
