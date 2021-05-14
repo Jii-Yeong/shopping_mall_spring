@@ -1,8 +1,5 @@
-package review;
+package kr.co.shopping_mall.review;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.Serializable;
 
 public class Review implements Serializable {
@@ -84,43 +81,5 @@ public class Review implements Serializable {
 	@Override
 	public String toString() {
 		return "Review [id=" + id + ", filePath=" + fileName + ", text=" + text + "]";
-	}
-	
-	public static byte[] imageToByteArray(String filePath) {
-		byte[] returnValue = null;
-		ByteArrayOutputStream baos =null;
-		FileInputStream fis = null;
-		
-		try {
-			baos = new ByteArrayOutputStream();
-			fis =  new FileInputStream(filePath);
-			
-			byte[] buf = new byte[1024];
-			int read = 0;
-			
-			while((read=fis.read(buf, 0, buf.length)) != -1) {
-				baos.write(buf, 0, read);
-			}
-			
-			returnValue = baos.toByteArray();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (baos != null) {
-				try {
-					baos.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			if (fis != null) {
-				try {
-					fis.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return returnValue;
 	}
 }

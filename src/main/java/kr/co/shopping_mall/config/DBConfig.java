@@ -13,14 +13,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import kr.co.shopping_mall.dao.ProductDao;
 import kr.co.shopping_mall.dao.UserDao;
+import kr.co.shopping_mall.dao.ReviewDAO;
+
 
 @Configuration
 //패키지 스캔
-@ComponentScan("kr.co.greenart")
+@ComponentScan("kr.co.shopping_mall")
 //프로퍼티 파일 경로
 @PropertySource("classpath:/kr/co/shopping_mall/config/mysql.properties")
 public class DBConfig {
-
 	@Value("${mysql.driverClassName}")
 	private String driverClassName;
 	@Value("${mysql.url}")
@@ -58,7 +59,11 @@ public class DBConfig {
 		return new UserDao(jdbcTemplate);
 	}
 	
-	
+	@Bean
+	@Autowired
+	public ReviewDAO reviewDAO(JdbcTemplate jdbcTemplate) {
+		return new ReviewDAO(jdbcTemplate);
+	}
 }
 
 	
