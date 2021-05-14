@@ -1,4 +1,4 @@
-package review;
+package kr.co.shopping_mall.review;
 
 import java.io.File;
 import java.io.IOException;
