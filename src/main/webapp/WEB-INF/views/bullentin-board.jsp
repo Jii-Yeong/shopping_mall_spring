@@ -1,7 +1,7 @@
+<%@page import="kr.co.shopping_mall.review.ReviewService"%>
+<%@page import="kr.co.shopping_mall.dao.ReviewDAO"%>
+<%@page import="kr.co.shopping_mall.review.Review"%>
 <%@page import="java.util.List"%>
-<%@page import="review.Review"%>
-<%@page import="review.ReviewDAO"%>
-<%@page import="review.ReviewRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -18,11 +18,9 @@
 	int endRow = currentPage * pageSize;
 	
 	Review review = new Review();
-	ReviewDAO dao = new ReviewDAO();
-	ReviewRepository rr = new ReviewRepository(dao);
-	List<Review> list = rr.reviewRead(startRow, endRow);
-	int count = rr.reviewCount();
-	
+	ReviewService service = new ReviewService();
+	List<Review> list = service.reviewRead(startRow, endRow);
+	int count = service.reviewCount();
 %>
 <!DOCTYPE html>
 <html>
