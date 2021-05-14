@@ -9,7 +9,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/icons/favicon.png"/>
+	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/images/icons/favicon.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -762,7 +762,7 @@
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="imageUpload/${ product_list.photo_1 }" alt="${ product_list.photo_1 }">
+							<img src="http://localhost:8080/shopping_mall/resources/imageUpload/${ product_list.photo_1 }" alt="${ product_list.photo_1 }">
 							<a href="#" onclick="setText(${ product_list.product_id })" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								
 								Quick View
@@ -1136,9 +1136,9 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 								if (pathes[i]) {
 									document.getElementById(photoIndex).style.display = 'block';
 									imgTag[i].style.display = 'block';
-									imgTag[i].setAttribute('src', 'imageUpload/' + pathes[i]);
+									imgTag[i].setAttribute('src', 'http://localhost:8080/shopping_mall/resources/imageUpload/' + pathes[i]);
 									console.log(photoIndex);
-									document.getElementById(photoIndex).setAttribute('src', 'imageUpload/' + pathes[i]);
+									document.getElementById(photoIndex).setAttribute('src', 'http://localhost:8080/shopping_mall/resources/imageUpload/' + pathes[i]);
 								} else {
 									document.getElementById(photoIndex).style.display = 'none';
 									imgTag[i].style.display = 'none';
