@@ -15,11 +15,10 @@ import kr.co.shopping_mall.dao.ProductDao;
 
 @Configuration
 //패키지 스캔
-@ComponentScan("kr.co.greenart")
+@ComponentScan("kr.co.shopping_mall")
 //프로퍼티 파일 경로
 @PropertySource("classpath:/kr/co/shopping_mall/config/mysql.properties")
 public class DBConfig {
-
 	@Value("${mysql.driverClassName}")
 	private String driverClassName;
 	@Value("${mysql.url}")
