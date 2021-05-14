@@ -1,8 +1,11 @@
 package kr.co.shopping_mall.review;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,18 +18,18 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @Controller
-@RequestMapping("/review")
+@RequestMapping("review")
 public class ReviewController {
 	@Autowired
 	private ReviewService service;
 	
-	@GetMapping("/load")
+	@GetMapping
 	public String load() {
 		return "bullentin-board";
 	}
 	
-	@PostMapping(value = "/load", params = { "id", "text", "file"})
-	public String addReview(@RequestParam String id, @RequestParam String text, @RequestParam String fileName) {
+	@PostMapping(value = "upload", params = { "id", "text", "file"})
+	public String addReview(@RequestParam String id, @RequestParam String text, @RequestParam String fileName, HttpServletRequest request) throws IOException {
 		String uploadDir = this.getClass().getResource("").getPath();
 		uploadDir = uploadDir.substring(1, uploadDir.indexOf(".metadata")) + "shopping_mall/WebContent/imageUpload";
 		
@@ -40,7 +43,7 @@ public class ReviewController {
 		File file = new File(uploadDir + "/" + fileName);
 		file.renameTo(new File(uploadDir + "/" + now + fileName));
 		
-		int result = service.ReviewAdd(new Review(id, fileName, text));
+		service.reviewAdd(new Review(id, fileName, text));
 		return "redirect/";
 	}
 	

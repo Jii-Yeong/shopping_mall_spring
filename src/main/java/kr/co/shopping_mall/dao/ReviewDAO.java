@@ -1,4 +1,4 @@
-package kr.co.shopping_mall.review;
+package kr.co.shopping_mall.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import kr.co.shopping_mall.review.Review;
 
-@Repository
 public class ReviewDAO {
 	private JdbcTemplate jdbcTemplate;
 	
@@ -35,7 +35,7 @@ public class ReviewDAO {
 	}
 	
 	public List<Review> reviewRead(int startRow, int endRow) {
-		return jdbcTemplate.query("SELECT * FROM review WHERE number BETWEEN ? AND ? ORDER BY number DESC", new ReviewMapper(), startRow, endRow);
+		return jdbcTemplate.query("SELECT * FROM review WHERE number BETWEEN ? AND ? ORDER BY number DESC", new Object[] { startRow, endRow }, new ReviewMapper());
 	}
 	
 	
