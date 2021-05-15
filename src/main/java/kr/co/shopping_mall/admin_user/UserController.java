@@ -14,7 +14,6 @@ public class UserController {
 	
 	@RequestMapping("/manage-page1")
 	public String getAllUser(Model model) {
-		System.out.println(service.getAllUser().toString());
 		model.addAttribute("user_list", service.getAllUser());
 		return "manage-page";
 	}

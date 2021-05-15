@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.shopping_mall.review.Review;
 
+@Repository
 public class ReviewDAO {
 	private JdbcTemplate jdbcTemplate;
 	
@@ -26,7 +27,7 @@ public class ReviewDAO {
 			String id = rs.getString("id");
 			String fileName = rs.getString("fileName");
 			String text = rs.getString("text");
-			return new Review(id, fileName, text);
+			return new Review(number, id, fileName, text);
 		}
 	}
 	
@@ -45,5 +46,10 @@ public class ReviewDAO {
 	
 	public int reviewDelete(int num) {
 		return jdbcTemplate.update("DELETE FROM review WHERE num = ?", num);
+	}
+	
+	
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
 	}
 }
