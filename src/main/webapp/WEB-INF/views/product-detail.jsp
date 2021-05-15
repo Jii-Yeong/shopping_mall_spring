@@ -10,8 +10,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-<<<<<<< HEAD
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -366,9 +365,9 @@
 							<div class="slick3 gallery-lb">
 							
 							<c:if test="${ fileNames[0].photo_1 ne null }"> 
-								<div class="item-slick3" data-thumb="imageUpload/${ fileNames[0].photo_1 }">
+								<div class="item-slick3" data-thumb="http://localhost:8080/shopping_mall/resources/imageUpload/${ fileNames[0].photo_1 }">
 									<div class="wrap-pic-w pos-relative">
-										<img src="imageUpload/${ fileNames[0].photo_1 }" alt="IMG-PRODUCT">
+										<img src="http://localhost:8080/shopping_mall/resources/imageUpload/${ fileNames[0].photo_1 }" alt="IMG-PRODUCT">
 
 										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
 											<i class="fa fa-expand"></i>
@@ -378,9 +377,9 @@
 							</c:if>	
 							
 							<c:if test="${ fileNames[0].photo_2 ne null }"> 
-								<div class="item-slick3" data-thumb="imageUpload/${ fileNames[0].photo_2 }">
+								<div class="item-slick3" data-thumb="http://localhost:8080/shopping_mall/resources/imageUpload/${ fileNames[0].photo_2 }">
 									<div class="wrap-pic-w pos-relative">
-										<img src="imageUpload/${ fileNames[0].photo_2 }" alt="IMG-PRODUCT">
+										<img src="http://localhost:8080/shopping_mall/resources/imageUpload/${ fileNames[0].photo_2 }" alt="IMG-PRODUCT">
 
 										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
 											<i class="fa fa-expand"></i>
@@ -390,9 +389,9 @@
 							</c:if>
 							
 							<c:if test="${ fileNames[0].photo_3 ne null }"> 
-								<div class="item-slick3" data-thumb="imageUpload/${ fileNames[0].photo_3 }">
+								<div class="item-slick3" data-thumb="http://localhost:8080/shopping_mall/resources/imageUpload/${ fileNames[0].photo_3 }">
 									<div class="wrap-pic-w pos-relative">
-										<img src="imageUpload/${ fileNames[0].photo_3 }" alt="IMG-PRODUCT">
+										<img src="http://localhost:8080/shopping_mall/resources/imageUpload/${ fileNames[0].photo_3 }" alt="IMG-PRODUCT">
 
 										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
 											<i class="fa fa-expand"></i>
@@ -2738,7 +2737,6 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 	</script>
 <!--===============================================================================================-->
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
->>>>>>> branch 'master' of https://github.com/iPhone-design/shopping_mall_spring.git
 
 </body>
 </html>
