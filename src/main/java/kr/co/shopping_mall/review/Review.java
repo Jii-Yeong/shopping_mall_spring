@@ -20,25 +20,44 @@ public class Review implements Serializable {
 		this.text = text;
 	}
 	
-	public Review(String fileName) {
+	public Review(int num, String id, String fileName, String text) {
 		super();
+		this.num = num;
+		this.id = id;
 		this.fileName = fileName;
+		this.text = text;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public String getId() {
 		return id;
 	}
-	
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getFileName() {
 		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getText() {
 		return text;
 	}
-	
-	public int getNum() {
-		return num;
+
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	@Override
@@ -47,10 +66,11 @@ public class Review implements Serializable {
 		int result = 1;
 		result = prime * result + ((fileName == null) ? 0 : fileName.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + num;
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,6 +90,8 @@ public class Review implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (num != other.num)
+			return false;
 		if (text == null) {
 			if (other.text != null)
 				return false;
@@ -77,9 +99,9 @@ public class Review implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", filePath=" + fileName + ", text=" + text + "]";
+		return "Review [num=" + num + ", id=" + id + ", fileName=" + fileName + ", text=" + text + "]";
 	}
 }
