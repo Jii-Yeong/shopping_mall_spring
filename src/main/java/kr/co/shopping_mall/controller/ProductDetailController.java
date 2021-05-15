@@ -1,4 +1,4 @@
-package kr.co.shopping_mall.productview;
+package kr.co.shopping_mall.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.co.shopping_mall.product.Product;
-import kr.co.shopping_mall.product.ProductPhoto;
-import kr.co.shopping_mall.product.ProductService;
+import kr.co.shopping_mall.model.Product;
+import kr.co.shopping_mall.model.ProductPhoto;
+import kr.co.shopping_mall.service.ProductService;
 
 @Controller
 public class ProductDetailController {

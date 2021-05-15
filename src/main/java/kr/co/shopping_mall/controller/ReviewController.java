@@ -1,9 +1,7 @@
-package kr.co.shopping_mall.review;
+package kr.co.shopping_mall.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,10 +14,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import kr.co.shopping_mall.model.Review;
+import kr.co.shopping_mall.service.ReviewPagination;
+import kr.co.shopping_mall.service.ReviewService;
 
 @Controller
 @RequestMapping("/review")
@@ -32,8 +33,8 @@ public class ReviewController {
 	
 	@GetMapping
 	public String load(Model model) {
-		model.addAttribute("read", service.reviewRead(0, 10));
 		model.addAttribute("count", service.reviewCount());
+		model.addAttribute("read", service.reviewRead(0, 15));
 		return "bullentin-board";
 	}
 	

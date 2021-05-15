@@ -1,4 +1,4 @@
-package kr.co.shopping_mall.review;
+package kr.co.shopping_mall.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package kr.co.shopping_mall.admin_user;
+package kr.co.shopping_mall.model;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
