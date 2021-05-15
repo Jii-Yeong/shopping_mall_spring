@@ -75,7 +75,7 @@
 				    var loadingImg ='';
 				      
 				    loadingImg +="<div id='loadingImg'>";
-				    loadingImg +=" <img src='images/loading.gif' style='position: absolute; display: block; margin: 0px auto;top:50%;left:50%;transfrom:translate(-50%, -50%)'/>";
+				    loadingImg +=" <img src='resources/images/loading.gif' style='position: absolute; display: block; margin: 0px auto; top: 50%; left: 50%'/>";
 				    loadingImg +="</div>"; 
 				  
 				    $('body')
