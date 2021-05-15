@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import kr.co.shopping_mall.admin_user.User;
+import kr.co.shopping_mall.model.User;
 
 @Repository
 public class UserDao {

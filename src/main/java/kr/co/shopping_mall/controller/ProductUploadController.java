@@ -1,4 +1,4 @@
-package kr.co.shopping_mall.productupload;
+package kr.co.shopping_mall.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import kr.co.shopping_mall.product.Product;
-import kr.co.shopping_mall.product.ProductService;
+import kr.co.shopping_mall.model.Product;
+import kr.co.shopping_mall.service.ProductService;
 
 @Controller
 public class ProductUploadController {

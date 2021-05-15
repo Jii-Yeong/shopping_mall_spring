@@ -1,4 +1,4 @@
-package kr.co.shopping_mall.product;
+package kr.co.shopping_mall.model;
 
 public class Product {
 	private int product_id;

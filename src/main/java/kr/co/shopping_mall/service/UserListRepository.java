@@ -1,7 +1,9 @@
-package kr.co.shopping_mall.admin_user;
+package kr.co.shopping_mall.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kr.co.shopping_mall.model.User;
 
 public class UserListRepository {
 	private static List<User> list = new ArrayList<>();

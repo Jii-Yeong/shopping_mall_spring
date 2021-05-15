@@ -1,4 +1,4 @@
-package kr.co.shopping_mall.product_manage;
+package kr.co.shopping_mall.controller;
 
 import org.springframework.stereotype.Controller;
 
