@@ -38,9 +38,9 @@ public class ReviewController {
 	}
 	
 	@PostMapping
-	public String addReview(Model model, HttpServletRequest request) throws IOException {
-		String uploadPath = request.getRealPath("/resources/imageUpload");
-		System.out.println(uploadPath);
+	public String addReview(Model model, HttpServletRequest request) throws IOException, InterruptedException {
+		String uploadPath = request.getSession().getServletContext().getRealPath("");
+		uploadPath = uploadPath.substring(0, uploadPath.indexOf(".metadata")) + "shopping_mall_spring/src/main/webapp/resources/imageUpload/";
 		
 		int maxSize = 1024 * 1024 * 100;
 		String encoding = "UTF-8";
@@ -48,15 +48,16 @@ public class ReviewController {
 		MultipartRequest multipartRequest = new MultipartRequest(request, uploadPath, maxSize, encoding, new DefaultFileRenamePolicy());
 		
 		String id = multipartRequest.getParameter("id");
-		String fileName = multipartRequest.getParameter("fileName");
+		String fileName = multipartRequest.getOriginalFileName("fileName");
 		String text = multipartRequest.getParameter("text");
 		String now = new SimpleDateFormat("yyyy-MM-dd-HH_mm_ss_").format(new Date());
 		
 		File file = new File(uploadPath + fileName);
 		file.renameTo(new File(uploadPath + "/" + now + fileName));
+		service.reviewAdd(new Review(id, now + fileName, text));
 		
-		service.reviewAdd(new Review(id, fileName, text));
-		return "redirect:/bullentin-board";
+		Thread.sleep(5000);
+		return "redirect:/review";
 	}
 	
 }
