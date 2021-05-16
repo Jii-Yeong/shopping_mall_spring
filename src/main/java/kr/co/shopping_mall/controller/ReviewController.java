@@ -31,15 +31,18 @@ public class ReviewController {
 	
 	@GetMapping
 	public String load(Model model, @RequestParam(value="nowPage", required = false) String nowPage, ReviewPagination pagination){
-		System.out.println(nowPage);
 		int total = service.reviewCount();
+		System.out.println("요청페이지 : " + nowPage);
+		System.out.println("토탈 : " + total);
 		if (nowPage == null) {
 			nowPage = "1";
 		}
 		pagination = new ReviewPagination(total, Integer.valueOf(nowPage));
 		model.addAttribute("count", service.reviewCount());
 		model.addAttribute("paging", pagination);
-		model.addAttribute("read", service.reviewRead(pagination.getStartRow(), pagination.getEndRow()));
+		model.addAttribute("read", service.reviewRead(pagination.getStartRow() - 1));
+		System.out.println("시작 limit : " + pagination.getStartRow());
+		System.out.println("끝 limit : " + pagination.getEndRow());
 		return "bullentin-board";
 	}
 	
