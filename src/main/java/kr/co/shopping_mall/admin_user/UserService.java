@@ -15,12 +15,16 @@ public class UserService {
 	public List<User> getAllUser() {
 		return dao.getAllUser();
 	}
+	// 아이디로 회원 조회
+	public User getByUserNum(int user_num) {
+		return dao.getByUserNum(user_num);
+	}
 	// 회원 정보 업데이트
 	public int update(User user) {
 		return dao.update(user);
 	}
 	// 회원 삭제
-	public int delete(User user) {
-		return dao.deleteUser(user.getUser_num());
+	public int delete(int user_num) {
+		return dao.deleteUser(user_num);
 	}
 }
