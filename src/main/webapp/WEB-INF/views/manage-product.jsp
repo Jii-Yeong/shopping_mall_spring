@@ -29,15 +29,16 @@
 	<c:forEach var="product_list" items="${ product_list }">
       <tbody>
    		<tr>
-   			<td>${product.product_id}</td>
-   			<td>${product.name}</td>
-   			<td>${product.photo_1}</td>
-   			<td>${product.photo_2}</td>
-   			<td>${product.photo_3}</td>
-   			<td>${product.price}</td>
-   			<td>${product.description}</td>
-   			<td><a href="manage-user.jsp?product.id=${ user_list.user_num }">[ 수정 ]</a></td>
-   			<td><a href="manage-user.jsp?product.id=${ user_list.user_num }">[ 삭제 ]</a></td>
+   			<td>${product_list.product_id}</td>
+   			<td>${product_list.name}</td>
+   			<td><img id="product_photo1" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_1}" alt="IMG-PRODUCT"></td>
+   			<td><img id="product_photo2" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_2}" alt="IMG-PRODUCT"></td>
+   			<td><img id="product_photo3" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_3}" alt="IMG-PRODUCT"></td>
+   			<td>${product_list.price}</td>
+   			<td>${product_list.description}</td>
+<!-- TODO 상품 수정 JSP 구현하기 -->
+   			<td><a href="update_product.do?productId=${ product_list.product_id }">[ 수정 ]</a></td>
+   			<td><a href="delete_product.do?productId=${ product_list.product_id }">[ 삭제 ]</a></td>
     	</tr>
       </tbody>
       </c:forEach>
