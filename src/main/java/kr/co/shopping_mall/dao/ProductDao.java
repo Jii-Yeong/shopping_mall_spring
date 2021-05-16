@@ -32,7 +32,6 @@ public class ProductDao {
 			
 			return new Product(productId, name, photo_1, photo_2, photo_3, price, description);
 		}
-		
 	}
 	
 	private class ProductInfoMapper implements RowMapper<ProductInfo> {
@@ -55,6 +54,26 @@ public class ProductDao {
 	
 	public int addProduct(Product product) {
 		return jdbcTemplate.update("INSERT INTO product_upload(name, photo_1, photo_2, photo_3, price, description) VALUES (?, ?, ?, ?, ?, ?)", product.getName(), product.getPhoto_1(), product.getPhoto_2(), product.getPhoto_3(), product.getPrice(), product.getDescription());
+	}
+	
+	public int updateProduct(Product product) {
+		return jdbcTemplate.update("UPDATE product_upload SET name = ?"
+														+ ", photo_1 = ?"
+														+ ", photo_2 = ?"
+														+ ", photo_3 = ?"
+														+ ", price = ?"
+														+ ", description = ?"
+														, product.getName()
+														, product.getPhoto_1()
+														, product.getPhoto_2()
+														, product.getPhoto_3()
+														, product.getPrice()
+														, product.getDescription());
+	}
+	
+	public int deleteProduct(int productId) {
+		return jdbcTemplate.update("DELETE FROM product_upload WHERE number = ?"
+				, productId);
 	}
 	
 	public List<ProductInfo> readAllProductInfo() {
