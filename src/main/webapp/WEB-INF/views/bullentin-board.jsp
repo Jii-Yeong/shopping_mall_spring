@@ -57,42 +57,64 @@
 		            <!-- ./Team member -->
           		</c:forEach>
             </c:if>
-            </div>
-	    <form action="/shopping_mall/review" method="post" enctype="multipart/form-data">
-			아이디:<br>
-			<input type="text" name="id" maxlength="30" placeholder="아이디" style="text-indunt:5px" required/> <br>
-			내용:<br>
-			<textarea name="text" placeholder="후기" style="resize:none;text-indunt:5px;width:11.4rem;height:10rem;" required></textarea><br><br>
-			<input type="file" name="fileName" accept="image/*" onchange="chk_file_type(this)" required/> <br>
-			<input type="submit" value="업로드" onclick="LoadingWithMask()" style="width:3.5rem;height:2rem;background:#000;color:#fff;border-radius:5px;font-size:14px"/>
-		</form>
+        </div>
+        <!-- Paging -->
+           <div style='position: absolute; left:50%'>
+           	<c:if test="${paging.startPage != 1}">
+           		<a href="/shopping_mall/review?nowPage=${paging.startPage - 1}">&lt;</a>
+           	</c:if>
+           	<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
+           		<c:choose>
+           			<c:when test="${p == paging.nowPage}">
+           				<b>${p}</b>
+           			</c:when>
+           			<c:when test="${p != paging.nowPage}">
+           				<a href="/shopping_mall/review?nowPage=${p}">${p}</a>
+           			</c:when>
+           		</c:choose>
+           	</c:forEach>
+           	<c:if test="${paging.endPage != paging.lastPage}">
+           		<a href="/shopping_mall/review?nowPage=${paging.endPage + 1}">&gt;</a>
+           	</c:if>
+           </div>
+        <!-- ./Paging -->
+        <div>
+		    <form action="/shopping_mall/review" method="post" enctype="multipart/form-data">
+				아이디:<br>
+				<input type="text" name="id" maxlength="30" placeholder="아이디" style="text-indunt:5px" required/> <br>
+				내용:<br>
+				<textarea name="text" placeholder="후기" style="resize:none;text-indunt:5px;width:11.4rem;height:10rem;" required></textarea><br><br>
+				<input type="file" name="fileName" accept="image/*" onchange="chk_file_type(this)" required/> <br>
+				<input type="submit" value="업로드" onclick="LoadingWithMask()" style="width:3.5rem;height:2rem;background:#000;color:#fff;border-radius:5px;font-size:14px"/>
+			</form>
+        </div>
 		<script type="text/javascript">
-				function LoadingWithMask() {
-				    var maskHeight = $(document).height();
-				    var maskWidth  = window.document.body.clientWidth;
-				     
-				    var mask       ="<div id='mask' style='position:absolute; z-index:9000; background-color:#000; display:none; left:0; top:0;'></div>";
-				    var loadingImg ='';
-				      
-				    loadingImg +="<div id='loadingImg'>";
-				    loadingImg +=" <img src='resources/images/loading.gif' style='position: absolute; display: block; margin: 0px auto; top: 50%; left: 50%'/>";
-				    loadingImg +="</div>"; 
-				  
-				    $('body')
-				        .append(mask)
-				        .append(loadingImg)
-				        
-				    $('#mask').css({
-				            'width' : maskWidth
-				            ,'height': maskHeight
-				            ,'opacity' :'0.3'
-				    });
-				  
-				    $('#mask').show();  
-				  
-				    $('#loadingImg').show();
-				    window.scrollTo(0,0);
-				}
+			function LoadingWithMask() {
+			    var maskHeight = $(document).height();
+			    var maskWidth  = window.document.body.clientWidth;
+			     
+			    var mask       ="<div id='mask' style='position:absolute; z-index:9000; background-color:#000; display:none; left:0; top:0;'></div>";
+			    var loadingImg ='';
+			      
+			    loadingImg +="<div id='loadingImg'>";
+			    loadingImg +=" <img src='resources/images/loading.gif' style='position: absolute; display: block; margin: 0px auto; top: 50%; left: 50%'/>";
+			    loadingImg +="</div>"; 
+			  
+			    $('body')
+			        .append(mask)
+			        .append(loadingImg)
+			        
+			    $('#mask').css({
+			            'width' : maskWidth
+			            ,'height': maskHeight
+			            ,'opacity' :'0.3'
+			    });
+			  
+			    $('#mask').show();  
+			  
+			    $('#loadingImg').show();
+			    window.scrollTo(0,0);
+			}
 		</script>
     </div>
 </section>
