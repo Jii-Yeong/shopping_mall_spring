@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import kr.co.shopping_mall.model.Product;
+import kr.co.shopping_mall.model.ProductInfo;
 
 public class ProductDao {
 	private JdbcTemplate jdbcTemplate;
@@ -34,12 +35,30 @@ public class ProductDao {
 		
 	}
 	
+	private class ProductInfoMapper implements RowMapper<ProductInfo> {
+		@Override
+		public ProductInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
+			int id = rs.getInt("id");
+			int number = rs.getInt("number");
+			String color = rs.getString("color");
+			int size_s = rs.getInt("size_s");
+			int size_m = rs.getInt("size_m");
+			int size_l = rs.getInt("size_l");
+			return new ProductInfo(id, number, color, size_s, size_m, size_l);
+		}
+		
+	}
+	
 	public List<Product> readAllProduct() {
 		return jdbcTemplate.query("SELECT * FROM product_upload", new ProductMapper());
 	}
 	
 	public int addProduct(Product product) {
 		return jdbcTemplate.update("INSERT INTO product_upload(name, photo_1, photo_2, photo_3, price, description) VALUES (?, ?, ?, ?, ?, ?)", product.getName(), product.getPhoto_1(), product.getPhoto_2(), product.getPhoto_3(), product.getPrice(), product.getDescription());
+	}
+	
+	public List<ProductInfo> readAllProductInfo() {
+		return jdbcTemplate.query("SELECT * FROM product_info", new ProductInfoMapper());
 	}
 	
 }

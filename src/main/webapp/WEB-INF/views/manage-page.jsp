@@ -37,6 +37,7 @@
 	</div>
 	</div>
 <script> 
+
 	function setThumbnail(event) { 
 		for (var image of event.target.files) { 
 			var reader = new FileReader(); reader.onload = function(event) { 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.shopping_mall.dao.ProductDao;
 import kr.co.shopping_mall.model.Product;
+import kr.co.shopping_mall.model.ProductInfo;
 
 @Service
 public class ProductService {
@@ -17,5 +18,9 @@ public class ProductService {
 	}
 	public int add(Product product) {
 		return dao.addProduct(product);
+	}
+	
+	public List<ProductInfo> readAllInfo() {
+		return dao.readAllProductInfo();
 	}
 }
