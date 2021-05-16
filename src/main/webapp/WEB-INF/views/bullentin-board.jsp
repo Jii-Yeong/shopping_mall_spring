@@ -1,6 +1,6 @@
-<%@page import="kr.co.shopping_mall.review.ReviewService"%>
+<%@page import="kr.co.shopping_mall.service.ReviewService"%>
 <%@page import="kr.co.shopping_mall.dao.ReviewDAO"%>
-<%@page import="kr.co.shopping_mall.review.Review"%>
+<%@page import="kr.co.shopping_mall.model.Review"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -23,6 +23,9 @@
     <div class="container">
         <h5 class="section-title h1">Review</h5>
         <a href="/shopping_mall">HOME</a>
+        <c:if test="${ count <= 0 }">
+        	<p>게시글이 없습니다.</p>
+        </c:if>
         <div class="row">
         	<c:if test="${ count > 0 }">
 	        	<c:forEach var="read" items="${ read }">
@@ -54,10 +57,7 @@
 		            <!-- ./Team member -->
           		</c:forEach>
             </c:if>
-            <c:if test="${ count <= 0 }">
-            	<p>게시글이 없습니다.</p>
-            </c:if>
-        </div>
+            </div>
 	    <form action="/shopping_mall/review" method="post" enctype="multipart/form-data">
 			아이디:<br>
 			<input type="text" name="id" maxlength="30" placeholder="아이디" style="text-indunt:5px" required/> <br>

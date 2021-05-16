@@ -1,4 +1,4 @@
-package kr.co.shopping_mall.admin_user;
+package kr.co.shopping_mall.controller;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import kr.co.shopping_mall.model.User;
+import kr.co.shopping_mall.service.UserService;
 
 @Controller
 @RequestMapping("/manage-page1")

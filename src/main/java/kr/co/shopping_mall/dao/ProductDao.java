@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import kr.co.shopping_mall.product.Product;
+import kr.co.shopping_mall.model.Product;
 
 public class ProductDao {
 	private JdbcTemplate jdbcTemplate;
