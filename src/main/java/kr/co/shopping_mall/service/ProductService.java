@@ -18,4 +18,10 @@ public class ProductService {
 	public int add(Product product) {
 		return dao.addProduct(product);
 	}
+	public int update(Product product) {
+		return dao.updateProduct(product);
+	}
+	public int delete(int productId) {
+		return dao.deleteProduct(productId);
+	}
 }
