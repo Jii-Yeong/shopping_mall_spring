@@ -61,4 +61,8 @@ public class ProductDao {
 		return jdbcTemplate.query("SELECT * FROM product_info", new ProductInfoMapper());
 	}
 	
+	public int addProductInfo(ProductInfo productInfo) {
+		return jdbcTemplate.update("INSERT product_info(number, color, size_s, size_m, size_l) VALUES (?, ?, ? ,?, ?)", productInfo.getNumber(), productInfo.getColor(), productInfo.getSize_s(), productInfo.getSize_m(), productInfo.getSize_l());
+	}
+	
 }
