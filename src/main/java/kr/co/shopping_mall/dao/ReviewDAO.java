@@ -36,7 +36,7 @@ public class ReviewDAO {
 	}
 	
 	public List<Review> reviewRead(int startRow, int endRow) {
-		return jdbcTemplate.query("SELECT * FROM review ORDER BY number DESC LIMIT ?, ?", new Object[] { startRow, endRow }, new ReviewMapper());
+		return jdbcTemplate.query("SELECT * FROM review WHERE number BETWEEN ? AND ? ORDER BY number DESC", new Object[] { startRow, endRow }, new ReviewMapper());
 	}
 	
 	
