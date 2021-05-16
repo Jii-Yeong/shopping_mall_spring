@@ -17,7 +17,6 @@ import kr.co.shopping_mall.model.User;
 public class UserDao {
 	private JdbcTemplate jdbcTemplate;
 	
-//	@Autowired
 	public UserDao(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
@@ -33,8 +32,9 @@ public class UserDao {
 			int phone_num = rs.getInt("phone_num");
 			String address = rs.getString("address");
 			LocalDateTime join_date = rs.getTimestamp("join_date").toLocalDateTime();
+			int grade = rs.getInt("grade");
 			
-			return new User(user_num, id, password, name, birth, phone_num, address, join_date, user_num);
+			return new User(user_num, id, password, name, birth, phone_num, address, join_date, grade);
 		}
 	}
 	// 전체 회원 조회
@@ -58,15 +58,6 @@ public class UserDao {
 	
 	// 회원 정보 업데이트
 	public int update(User user) {
-		return jdbcTemplate.update("UPDATE users SET password = ?"
-													+ ", name = ?"
-													+ ", phone_num = ?"
-													+ ", address = ?"
-													+ ", grade = ?",
-													user.getPassword()
-													, user.getName()
-													, user.getPhone_num()
-													, user.getAddress()
-													, user.getGrade());
+		return jdbcTemplate.update("UPDATE users SET grade = ? WHERE user_num = ?", user.getGrade(), user.getUser_num());
 	}
 }
