@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import kr.co.shopping_mall.model.Product;
+import kr.co.shopping_mall.model.ProductInfo;
 
 public class ProductDao {
 	private JdbcTemplate jdbcTemplate;
@@ -31,6 +32,20 @@ public class ProductDao {
 			
 			return new Product(productId, name, photo_1, photo_2, photo_3, price, description);
 		}
+	}
+	
+	private class ProductInfoMapper implements RowMapper<ProductInfo> {
+		@Override
+		public ProductInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
+			int id = rs.getInt("id");
+			int number = rs.getInt("number");
+			String color = rs.getString("color");
+			int size_s = rs.getInt("size_s");
+			int size_m = rs.getInt("size_m");
+			int size_l = rs.getInt("size_l");
+			return new ProductInfo(id, number, color, size_s, size_m, size_l);
+		}
+		
 	}
 	
 	public List<Product> readAllProduct() {
@@ -59,6 +74,14 @@ public class ProductDao {
 	public int deleteProduct(int productId) {
 		return jdbcTemplate.update("DELETE FROM product_upload WHERE number = ?"
 				, productId);
+	}
+	
+	public List<ProductInfo> readAllProductInfo() {
+		return jdbcTemplate.query("SELECT * FROM product_info", new ProductInfoMapper());
+	}
+	
+	public int addProductInfo(ProductInfo productInfo) {
+		return jdbcTemplate.update("INSERT product_info(number, color, size_s, size_m, size_l) VALUES (?, ?, ? ,?, ?)", productInfo.getNumber(), productInfo.getColor(), productInfo.getSize_s(), productInfo.getSize_m(), productInfo.getSize_l());
 	}
 	
 }
