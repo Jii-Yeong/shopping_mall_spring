@@ -10,7 +10,7 @@ public class ReviewPagination {
 	private int startRow;		// SQL 쿼리 Limit
 	private int endRow;			// SQL 쿼리 Limit
 	
-	private static final int CNTPAGE = 10; // 페이징 보여지는 범위
+	private static final int CNTPAGE = 10; // 페이징 범위
 	
 	public ReviewPagination() {
 	}

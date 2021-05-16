@@ -35,10 +35,9 @@ public class ReviewDAO {
 		return jdbcTemplate.update("INSERT INTO review(id, fileName, text) VALUES (?, ?, ?)", review.getId(), review.getFileName(), review.getText());
 	}
 	
-	public List<Review> reviewRead(int startRow, int endRow) {
-		return jdbcTemplate.query("SELECT * FROM review WHERE number BETWEEN ? AND ? ORDER BY number DESC", new Object[] { startRow, endRow }, new ReviewMapper());
+	public List<Review> reviewRead(int startRow) {
+		return jdbcTemplate.query("SELECT * FROM review ORDER BY number DESC LIMIT ?, 15;", new Object[] { startRow }, new ReviewMapper());
 	}
-	
 	
 	public int reviewCount() {
 		return jdbcTemplate.queryForObject("SELECT count(*) FROM review", Integer.class);
