@@ -17,8 +17,8 @@ public class ReviewService {
 		return dao.reviewAdd(review);
 	}
 	
-	public List<Review> reviewRead(int startRow, int endRow) {
-		return dao.reviewRead(startRow, endRow);
+	public List<Review> reviewRead(int startRow) {
+		return dao.reviewRead(startRow);
 	}
 	
 	public int reviewCount() {

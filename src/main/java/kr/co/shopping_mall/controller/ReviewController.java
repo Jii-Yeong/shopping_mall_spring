@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -28,13 +29,20 @@ public class ReviewController {
 	@Autowired
 	private ReviewService service;
 	
-	@Autowired
-	private ServletContext ServletContext;
-	
 	@GetMapping
-	public String load(Model model) {
+	public String load(Model model, @RequestParam(value="nowPage", required = false) String nowPage, ReviewPagination pagination){
+		int total = service.reviewCount();
+		System.out.println("요청페이지 : " + nowPage);
+		System.out.println("토탈 : " + total);
+		if (nowPage == null) {
+			nowPage = "1";
+		}
+		pagination = new ReviewPagination(total, Integer.valueOf(nowPage));
 		model.addAttribute("count", service.reviewCount());
-		model.addAttribute("read", service.reviewRead(0, 15));
+		model.addAttribute("paging", pagination);
+		model.addAttribute("read", service.reviewRead(pagination.getStartRow() - 1));
+		System.out.println("시작 limit : " + pagination.getStartRow());
+		System.out.println("끝 limit : " + pagination.getEndRow());
 		return "bullentin-board";
 	}
 	
@@ -60,5 +68,4 @@ public class ReviewController {
 		Thread.sleep(5000);
 		return "redirect:/review";
 	}
-	
 }

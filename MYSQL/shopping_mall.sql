@@ -67,6 +67,7 @@ CREATE TABLE `review` (
 
 LOCK TABLES `review` WRITE;
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
+INSERT INTO `review` VALUES (1,'글순서1','2021-05-16-16_57_37_옷.PNG','글순서1'),(2,'글순서2','2021-05-16-16_57_50_옷임다.PNG','글순서2'),(3,'글순서3','2021-05-16-16_58_11_일상.PNG','글순서3'),(4,'글순서4','2021-05-16-16_58_25_한복.PNG','글순서4'),(5,'글순서5','2021-05-16-16_58_44_옷.PNG','글순서5'),(6,'글순서6','2021-05-16-16_59_09_일상.PNG','글순서6'),(7,'글순서7','2021-05-16-16_59_25_옷임다.PNG','글순서7'),(8,'글순서8','2021-05-16-16_59_53_한복.PNG','글순서8'),(9,'글순서9','2021-05-16-17_00_21_일상.PNG','글순서9'),(10,'글순서10','2021-05-16-17_00_44_옷.PNG','글순서10'),(11,'글순서11','2021-05-16-17_01_05_한복.PNG','글순서11'),(12,'글순서12','2021-05-16-17_01_20_옷임다.PNG','글순서12'),(13,'글순서13','2021-05-16-17_01_43_일상.PNG','글순서13'),(14,'글순서14','2021-05-16-17_01_58_한복.PNG','글순서14'),(15,'글순서15','2021-05-16-17_02_21_옷.PNG','글순서15'),(16,'글순서16','2021-05-16-17_02_36_옷임다.PNG','글순서16');
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,6 +101,36 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product_info`
+--
+
+DROP TABLE IF EXISTS `product_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_info` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `number` int NOT NULL,
+  `color` varchar(45) NOT NULL,
+  `size_s` int NOT NULL DEFAULT '0',
+  `size_m` int NOT NULL DEFAULT '0',
+  `size_l` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `number_idx` (`number`),
+  CONSTRAINT `number` FOREIGN KEY (`number`) REFERENCES `product_upload` (`number`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_info`
+--
+
+LOCK TABLES `product_info` WRITE;
+/*!40000 ALTER TABLE `product_info` DISABLE KEYS */;
+INSERT INTO `product_info` VALUES (1,24,'Red',0,2,3),(2,24,'Yellow',1,2,3),(3,24,'Blue',4,3,2),(4,24,'Mint',100,100,100);
+/*!40000 ALTER TABLE `product_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

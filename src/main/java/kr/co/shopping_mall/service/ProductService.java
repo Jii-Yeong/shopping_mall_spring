@@ -16,11 +16,16 @@ public class ProductService {
 	public List<Product> readAll() {
 		return dao.readAllProduct();
 	}
+	public List<ProductInfo> readAllInfo() {
+		return dao.readAllProductInfo();
+	}
 	public int add(Product product) {
 		return dao.addProduct(product);
 	}
-	
-	public List<ProductInfo> readAllInfo() {
-		return dao.readAllProductInfo();
+	public int update(Product product) {
+		return dao.updateProduct(product);
+	}
+	public int delete(int productId) {
+		return dao.deleteProduct(productId);
 	}
 }
