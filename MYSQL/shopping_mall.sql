@@ -100,6 +100,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'id','password','name','2021-05-17',1012345678,'부산광역시 해운대구','2021-05-17 17:37:18',1),(2,'abc','password','이름','2020-11-17',1098765432,'서울특별시 관악구','2021-05-17 17:37:19',1),(3,'def','password','대한','1994-05-17',1055515548,'부산광역시 부산진구','2021-05-17 17:37:19',1),(4,'ggg','password','민국','2000-07-18',1012515545,'광주광역시','2021-05-17 17:37:20',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
