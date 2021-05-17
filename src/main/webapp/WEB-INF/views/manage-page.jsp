@@ -16,31 +16,22 @@
 <body>
 	<header>관리자 페이지</header>
 	<div class="container-inner">
-	<div class="nav-inner">
-		<ul class="nav nav-stacked">
-  			<li role="presentation"><a href="#manage_user" aria-controls="manage_user" role="tab" data-toggle="tab">회원 관리</a></li>
-  			<li role="presentation"><a href="#product_add" aria-controls="product_add" role="tab" data-toggle="tab">상품 추가</a></li>
-  			<li role="presentation"><a href="#manage_product" aria-controls="manage_product" role="tab" data-toggle="tab">상품 관리</a></li>
- 			<li role="presentation"><a>로그아웃</a></li>
-		</ul>
+		<div class="nav-inner">
+			<ul class="nav nav-stacked">
+	  			<li role="presentation"><a href="/shopping_mall/manage-page/manage-user">회원 관리</a></li>
+	  			<li role="presentation"><a href="/shopping_mall/manage-page/manage-review">리뷰 관리</a></li>
+	  			<li role="presentation"><a href="/shopping_mall/manage-page/manage-product">상품 관리</a></li>
+	  			<li role="presentation"><a href="/shopping_mall/manage-page/manage-upload">상품 추가</a></li>
+	 			<li role="presentation"><a>로그아웃</a></li>
+			</ul>
+		</div>
 	</div>
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane active">
 			<p class="welcome-admin">환영합니다 admin 님</p>
 		</div>
-		<div role="tabpanel" class="tab-pane" id="product_add">
-			<%@ include file="manage-upload.jsp" %>
-		</div>
-		<div role="tabpanel" class="tab-pane" id="manage_user">
-			<%@ include file="manage-user-list.jsp" %>
-		</div>
-		<div role="tabpanel" class="tab-pane" id="manage_product">
-			<%@ include file="manage-product.jsp" %>
-		</div>
-	</div>
 	</div>
 <script> 
-
 	function setThumbnail(event) { 
 		for (var image of event.target.files) { 
 			var reader = new FileReader(); reader.onload = function(event) { 
@@ -50,8 +41,8 @@
 				document.querySelector("div#image_container").appendChild(img); 
 				}; 
 				reader.readAsDataURL(image); 
-			} 
 		} 
+	} 
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>

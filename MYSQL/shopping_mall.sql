@@ -104,6 +104,36 @@ LOCK TABLES `users` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `product_info`
+--
+
+DROP TABLE IF EXISTS `product_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_info` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `number` int NOT NULL,
+  `color` varchar(45) NOT NULL,
+  `size_s` int NOT NULL DEFAULT '0',
+  `size_m` int NOT NULL DEFAULT '0',
+  `size_l` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `number_idx` (`number`),
+  CONSTRAINT `number` FOREIGN KEY (`number`) REFERENCES `product_upload` (`number`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_info`
+--
+
+LOCK TABLES `product_info` WRITE;
+/*!40000 ALTER TABLE `product_info` DISABLE KEYS */;
+INSERT INTO `product_info` VALUES (1,24,'Red',0,2,3),(2,24,'Yellow',1,2,3),(3,24,'Blue',4,3,2),(4,24,'Mint',100,100,100);
+/*!40000 ALTER TABLE `product_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping events for database 'mall_db'
 --
 
