@@ -5,12 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 관리</title>
+<<<<<<< HEAD
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-upload.css">
+=======
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-page.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manager-upload.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
+>>>>>>> branch 'master' of https://github.com/iPhone-design/shopping_mall_spring.git
 </head>
 <body>
 <header>관리자 페이지</header>
@@ -66,6 +70,6 @@
 	</div>
 	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
 </body>
 </html>

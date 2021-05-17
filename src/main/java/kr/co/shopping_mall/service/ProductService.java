@@ -1,6 +1,7 @@
 package kr.co.shopping_mall.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,11 @@ public class ProductService {
 	}
 	public int delete(int productId) {
 		return dao.deleteProduct(productId);
+	}
+	public int addInfo(ProductInfo info) {
+		return dao.addProductInfo(info);
+	}
+	public Map<String, Object> findNumber(String name) {
+		return dao.findNumber(name);
 	}
 }
