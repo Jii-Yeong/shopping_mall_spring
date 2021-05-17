@@ -40,7 +40,7 @@ public class ReviewPagination {
 		}
 	}
 	
-	// DB 쿼리에서 사용할 start, end 값 계산
+	// DB 쿼리에서 사용할 start
 	public void calcStartEnd(int nowPage) {
 		setEndRow(nowPage * CNTPERPAGE);
 		setStartRow(getEndRow() - CNTPERPAGE + 1);

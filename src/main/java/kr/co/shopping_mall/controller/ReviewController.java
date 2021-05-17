@@ -68,5 +68,4 @@ public class ReviewController {
 		Thread.sleep(5000);
 		return "redirect:/review";
 	}
-	
 }
