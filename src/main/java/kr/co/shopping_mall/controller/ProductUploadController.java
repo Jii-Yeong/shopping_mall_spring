@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
@@ -16,11 +18,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.shopping_mall.model.Product;
+import kr.co.shopping_mall.model.ProductInfo;
 import kr.co.shopping_mall.service.ProductService;
 
 @Controller
@@ -41,6 +45,8 @@ public class ProductUploadController {
         String uploadPath = uploadDir.toString().substring(6);
         System.out.println("하이" + uploadPath);
         
+        
+        
 		int maxSize = 1024 * 1024 * 100;
 		String encoding = "UTF-8";
 		
@@ -57,7 +63,14 @@ public class ProductUploadController {
 		String description = mutlpartRequest.getParameter("product-content");
 		String now = new SimpleDateFormat("yyyy-MM-dd-HH_mm_ss_").format(new Date());
 		
+		String[] colorList = mutlpartRequest.getParameterValues("color_input");
+		String[] sList = mutlpartRequest.getParameterValues("color_s");
+		String[] mList = mutlpartRequest.getParameterValues("color_m");
+		String[] lList = mutlpartRequest.getParameterValues("color_l");
 		
+		for (int i = 0; i < colorList.length; i++) {
+			ProductInfo productInfo = 
+		}
 		
 		String[] renameFileName = new String[3];
 		for (int i = 0; i < 3; i++) {

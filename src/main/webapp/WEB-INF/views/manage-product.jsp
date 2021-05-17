@@ -5,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 관리</title>
-<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/manage-upload.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-upload.css">
 </head>
 <body>
 <div class="form">
@@ -49,6 +48,6 @@
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
 </body>
 </html>

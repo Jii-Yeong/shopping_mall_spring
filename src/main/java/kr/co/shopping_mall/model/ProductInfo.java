@@ -7,6 +7,16 @@ public class ProductInfo {
 	private int size_s;
 	private int size_m;
 	private int size_l;
+	
+	
+	
+	public ProductInfo(String color, int size_s, int size_m, int size_l) {
+		super();
+		this.color = color;
+		this.size_s = size_s;
+		this.size_m = size_m;
+		this.size_l = size_l;
+	}
 	public ProductInfo(int id, int number, String color, int size_s, int size_m, int size_l) {
 		super();
 		this.id = id;
