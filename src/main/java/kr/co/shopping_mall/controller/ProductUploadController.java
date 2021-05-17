@@ -34,12 +34,12 @@ public class ProductUploadController {
 	@Autowired
 	private ServletContext servletContext;
 	
-	@GetMapping("/manage-page") 
+	@GetMapping("/manage-page123") 
 	public String uploadView() {
 		return "manage-page";
 	}
 	
-	@PostMapping("/product_upload")
+	@PostMapping("/product_upload123")
 	public String upload(Model model, HttpServletRequest request) throws IOException {
 		URL uploadDir = servletContext.getResource("/resources/imageUpload");
         String uploadPath = uploadDir.toString().substring(6);

@@ -3,7 +3,7 @@ package kr.co.shopping_mall.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -82,6 +82,11 @@ public class ProductDao {
 	
 	public int addProductInfo(ProductInfo productInfo) {
 		return jdbcTemplate.update("INSERT product_info(number, color, size_s, size_m, size_l) VALUES (?, ?, ? ,?, ?)", productInfo.getNumber(), productInfo.getColor(), productInfo.getSize_s(), productInfo.getSize_m(), productInfo.getSize_l());
+	}
+	
+	public Map<String, Object> findNumber(String photo1) {
+		return jdbcTemplate.queryForMap("SELECT number FROM product_upload WHERE photo_1 = ?", photo1);
+			
 	}
 	
 }

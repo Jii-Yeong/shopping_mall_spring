@@ -1,11 +1,21 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% List<String[]> list = new ArrayList(); %>
-<%! int count = 1; %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자 페이지</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-page.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manager-upload.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
+
+</head>
+<body>
 <div class="form-inner">
-<form class="form" action="/shopping_mall/product_upload" method="post" enctype="multipart/form-data">
+<form class="form" action="/shopping_mall/manage-page/manage-upload" method="post" enctype="multipart/form-data">
 	<h1>상품 추가</h1>
 	<div class="form-group">
 		<label>제목</label>
@@ -89,6 +99,7 @@
 	}
 	
 </script>
-
+</body>
+</html>
 
 

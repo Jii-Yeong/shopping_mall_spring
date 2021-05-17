@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
@@ -23,6 +24,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.shopping_mall.model.Product;
+import kr.co.shopping_mall.model.ProductInfo;
 import kr.co.shopping_mall.service.ProductService;
 import kr.co.shopping_mall.service.ReviewPagination;
 import kr.co.shopping_mall.service.ReviewService;
@@ -74,8 +76,14 @@ public class ManagePageController {
 		return "manage-product";
 	}
 	
+	@GetMapping("/manage-upload")
+	public String loadUpload() {
+		return "manage-upload";
+	}
+	
+		
 	@PostMapping("/manage-upload")
-	public String upload(Model model, HttpServletRequest request) throws IOException {
+	public String upload(Model model, HttpServletRequest request) throws IOException, InterruptedException {
 		URL uploadDir = servletContext.getResource("/resources/imageUpload");
         String uploadPath = uploadDir.toString().substring(6);
         System.out.println("하이" + uploadPath);
@@ -96,6 +104,12 @@ public class ManagePageController {
 		String description = mutlpartRequest.getParameter("product-content");
 		String now = new SimpleDateFormat("yyyy-MM-dd-HH_mm_ss_").format(new Date());
 		
+		String[] colorList = mutlpartRequest.getParameterValues("color_input");
+		String[] sList = mutlpartRequest.getParameterValues("color_s");
+		String[] mList = mutlpartRequest.getParameterValues("color_m");
+		String[] lList = mutlpartRequest.getParameterValues("color_l");
+		
+		
 		String[] renameFileName = new String[3];
 		for (int i = 0; i < 3; i++) {
 			File file = new File(uploadDir + "/" + fileName[i]);
@@ -110,7 +124,15 @@ public class ManagePageController {
 				renameFileName[i] = null;
 			}
 		}
+		
 		productservice.add(new Product(name, renameFileName[0], renameFileName[1], renameFileName[2], price, description));
-		return "redirect:/manage-upload";
+		Thread.sleep(1000);
+		int number = (int) productservice.findNumber(renameFileName[0]).get("number");
+		System.out.println(number);
+		for (int i = 0; i < colorList.length; i++) {
+			ProductInfo info = new ProductInfo(number, colorList[i], Integer.parseInt(sList[i]), Integer.parseInt(mList[i]), Integer.parseInt(lList[i]));
+			productservice.addInfo(info);
+		}
+		return "redirect:/manage-page";
 	}
 }

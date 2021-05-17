@@ -10,8 +10,9 @@ public class ProductInfo {
 	
 	
 	
-	public ProductInfo(String color, int size_s, int size_m, int size_l) {
+	public ProductInfo(int number, String color, int size_s, int size_m, int size_l) {
 		super();
+		this.number = number;
 		this.color = color;
 		this.size_s = size_s;
 		this.size_m = size_m;
