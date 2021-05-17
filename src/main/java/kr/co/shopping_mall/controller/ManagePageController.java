@@ -35,7 +35,7 @@ import kr.co.shopping_mall.service.UserService;
 @RequestMapping("/manage-page")
 public class ManagePageController {
 	@Autowired
-	private ProductService productservice;
+	private ProductService productService;
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -83,31 +83,31 @@ public class ManagePageController {
 	}
 	
 	// 회원 1명 정보 불러오기
-	@GetMapping(value="userInfo.do")
+	@GetMapping("/manage-user-update")
 	public String getByUserNum(User user, Model model) throws Exception {
 		 model.addAttribute("user_info", userService.getByUserNum(user.getUser_num()));
 		 return "manage-user-update";
 	}
 		
 	// 회원 정보 수정
-	@PostMapping(value="update.do")
+	@PostMapping("/manage-user-update")
 	public String updateUser(User user) {
 		userService.update(user);
-		return "redirect://manage-page1/list.do";
+		return "redirect:/manage-page/manage-user";
 	}
 
 	// 회원 계정 삭제
-	@GetMapping(value="delete.do")
+	@GetMapping("/manage-user-delete")
 	public String deleteUser(User user) {
 		userService.delete(user.getUser_num());
-		return "redirect://manage-page1/list.do";
+		return "redirect:/manage-page/manage-user";
 	}
 	
 	//------------------------------ 제품 ---------------------------------//
 	
 	@GetMapping("/manage-product")
 	public String productLoad(Model model) {
-		model.addAttribute("product_list", productservice.readAll());
+		model.addAttribute("product_list", productService.readAll());
 		return "manage-product";
 	}
 	
@@ -160,14 +160,36 @@ public class ManagePageController {
 			}
 		}
 		
-		productservice.add(new Product(name, renameFileName[0], renameFileName[1], renameFileName[2], price, description));
+		productService.add(new Product(name, renameFileName[0], renameFileName[1], renameFileName[2], price, description));
 		Thread.sleep(1000);
-		int number = (int) productservice.findNumber(renameFileName[0]).get("number");
+		int number = (int) productService.findNumber(renameFileName[0]).get("number");
 		System.out.println(number);
 		for (int i = 0; i < colorList.length; i++) {
 			ProductInfo info = new ProductInfo(number, colorList[i], Integer.parseInt(sList[i]), Integer.parseInt(mList[i]), Integer.parseInt(lList[i]));
-			productservice.addInfo(info);
+			productService.addInfo(info);
 		}
 		return "redirect:/manage-page";
+	}
+	
+	// 상품 상세 정보 불러오기
+	@GetMapping("/manage-product-update")
+	public String getByProductId(int productId, Model model) throws Exception {
+		System.out.println("con : " + productId);
+		 model.addAttribute("product_info", productService.readById(productId));
+		 return "manage-product-update";
+	}
+		
+	// 상품 정보 수정
+	@PostMapping("/manage-product-update")
+	public String updateProduct(Product product) {
+		productService.update(product);
+		return "redirect:/manage-page/manage-product";
+	}
+	
+	// 상품 삭제
+	@GetMapping("/manage-product-delete")
+	public String deleteProduct(int productId) {
+		productService.delete(productId);
+		return "redirect:/manage-page/manage-product";
 	}
 }
