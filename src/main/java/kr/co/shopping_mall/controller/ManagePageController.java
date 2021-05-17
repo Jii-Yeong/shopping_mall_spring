@@ -25,6 +25,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.shopping_mall.model.Product;
 import kr.co.shopping_mall.model.ProductInfo;
+import kr.co.shopping_mall.model.User;
 import kr.co.shopping_mall.service.ProductService;
 import kr.co.shopping_mall.service.ReviewPagination;
 import kr.co.shopping_mall.service.ReviewService;
@@ -38,7 +39,7 @@ public class ManagePageController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	private ReviewService ReviewService;
+	private ReviewService reviewService;
 	@Autowired
 	private ServletContext servletContext;
 	
@@ -47,22 +48,33 @@ public class ManagePageController {
 		return "manage-page";
 	}
 	
+	//------------------------------ 리뷰 ---------------------------------//
+	
 	@GetMapping("/manage-review")
-	public String load(Model model, @RequestParam(value="nowPage", required = false) String nowPage, ReviewPagination pagination){
-		int total = ReviewService.reviewCount();
+	public String reviewload(Model model, @RequestParam(value="nowPage", required = false) String nowPage, ReviewPagination pagination){
+		int total = reviewService.reviewCount();
 		System.out.println("요청페이지 : " + nowPage);
 		System.out.println("토탈 : " + total);
 		if (nowPage == null) {
 			nowPage = "1";
 		}
 		pagination = new ReviewPagination(total, Integer.valueOf(nowPage));
-		model.addAttribute("count", ReviewService.reviewCount());
+		model.addAttribute("count", reviewService.reviewCount());
 		model.addAttribute("paging", pagination);
-		model.addAttribute("read", ReviewService.reviewRead(pagination.getStartRow() - 1));
+		model.addAttribute("read", reviewService.reviewRead(pagination.getStartRow() - 1));
 		System.out.println("시작 limit : " + pagination.getStartRow());
 		System.out.println("끝 limit : " + pagination.getEndRow());
 		return "manage-review";
 	}
+	
+	@GetMapping("/manage-review-delete")
+	public String reviewDelete(@RequestParam(value = "num", required = false) String num) {
+		reviewService.reviewDelete(Integer.valueOf(num));
+		return "redirect:/manage-page/manage-review";
+	}
+	
+	
+	//------------------------------ 유저 ---------------------------------//
 	
 	@GetMapping("/manage-user")
 	public String userLoad(Model model) {
@@ -70,8 +82,31 @@ public class ManagePageController {
 		return "manage-user-list";
 	}
 	
+	// 회원 1명 정보 불러오기
+	@GetMapping(value="userInfo.do")
+	public String getByUserNum(User user, Model model) throws Exception {
+		 model.addAttribute("user_info", userService.getByUserNum(user.getUser_num()));
+		 return "manage-user-update";
+	}
+		
+	// 회원 정보 수정
+	@PostMapping(value="update.do")
+	public String updateUser(User user) {
+		userService.update(user);
+		return "redirect://manage-page1/list.do";
+	}
+
+	// 회원 계정 삭제
+	@GetMapping(value="delete.do")
+	public String deleteUser(User user) {
+		userService.delete(user.getUser_num());
+		return "redirect://manage-page1/list.do";
+	}
+	
+	//------------------------------ 제품 ---------------------------------//
+	
 	@GetMapping("/manage-product")
-	public String index(Model model) {
+	public String productLoad(Model model) {
 		model.addAttribute("product_list", productservice.readAll());
 		return "manage-product";
 	}

@@ -44,7 +44,7 @@ public class ReviewDAO {
 	}
 	
 	public int reviewDelete(int num) {
-		return jdbcTemplate.update("DELETE FROM review WHERE num = ?", num);
+		return jdbcTemplate.update("DELETE FROM review WHERE number = ?", num);
 	}
 	
 	
