@@ -5,16 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 관리</title>
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-upload.css">
-=======
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-page.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manager-upload.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
->>>>>>> branch 'master' of https://github.com/iPhone-design/shopping_mall_spring.git
 </head>
 <body>
 <header>관리자 페이지</header>
@@ -50,21 +47,20 @@
 		   		<tr>
 		   			<td>${product_list.product_id}</td>
 		   			<td>${product_list.name}</td>
-		   			<td><img id="product_photo1" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_1}" alt="IMG-PRODUCT"></td>
-		   			<td><img id="product_photo2" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_2}" alt="IMG-PRODUCT"></td>
-		   			<td><img id="product_photo3" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_3}" alt="IMG-PRODUCT"></td>
+		   			<td><img id="product_photo1" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_1}" alt="IMG1-PRODUCT" width="80" height="90" ></td>
+		   			<td><img id="product_photo2" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_2}" alt="IMG2-PRODUCT" width="80" height="90" ></td>
+		   			<td><img id="product_photo3" src="http://localhost:8080/shopping_mall/resources/imageUpload/${product_list.photo_3}" alt="IMG3-PRODUCT" width="80" height="90" ></td>
 		   			<td>${product_list.price}</td>
 		   			<td>${product_list.description}</td>
-					<!-- TODO 상품 수정 JSP 구현하기 -->
-		   			<td><a href="update_product.do?productId=${ product_list.product_id }">[ 수정 ]</a></td>
-		   			<td><a href="delete_product.do?productId=${ product_list.product_id }">[ 삭제 ]</a></td>
+		   			<td><a href="manage-product-update?productId=${ product_list.product_id }">[ 수정 ]</a></td>
+		   			<td><a href="manage-product-delete?productId=${ product_list.product_id }">[ 삭제 ]</a></td>
 		    	</tr>
 		      </tbody>
 		      </c:forEach>
 			</table>
 			
 			<c:forEach var ="pageNum" begin="1" end="${ pageTotalCount }">
-			<a href="manage-user?page=${ pageNum }">[${ pageNum }]</a>
+			<a href="manage-product?page=${ pageNum }">[${ pageNum }]</a>
 			</c:forEach>
 		</div>
 	</div>

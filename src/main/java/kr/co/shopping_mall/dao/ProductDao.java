@@ -86,7 +86,13 @@ public class ProductDao {
 	
 	public Map<String, Object> findNumber(String photo1) {
 		return jdbcTemplate.queryForMap("SELECT number FROM product_upload WHERE photo_1 = ?", photo1);
-			
+	}
+	
+	public Product readById(int productId) {
+		System.out.println("dao : " + productId);
+		return jdbcTemplate.queryForObject("SELECT * FROM product_upload WHERE number = ?"
+											, new Object[] { productId }
+											, new ProductMapper());
 	}
 	
 }

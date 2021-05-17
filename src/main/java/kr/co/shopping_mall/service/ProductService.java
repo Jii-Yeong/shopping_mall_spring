@@ -35,4 +35,7 @@ public class ProductService {
 	public Map<String, Object> findNumber(String name) {
 		return dao.findNumber(name);
 	}
+	public Product readById(int productId) {
+		return dao.readById(productId);
+	}
 }

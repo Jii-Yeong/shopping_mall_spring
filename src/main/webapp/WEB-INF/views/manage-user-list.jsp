@@ -54,8 +54,8 @@
 			   			<td>${user_list.join_date}</td>
 			   			<td>${user_list.grade}</td>
 			   			
-			   			<td><a href="userInfo.do?user_num=${user_list.user_num}">[ 수정 ]</a></td>
-			   			<td><a href="delete.do?user_num=${user_list.user_num}">[ 삭제 ]</a></td>
+			   			<td><a href="manage-user-update?user_num=${user_list.user_num}">[ 수정 ]</a></td>
+			   			<td><a href="manage-user-delete?user_num=${user_list.user_num}">[ 삭제 ]</a></td>
 			    	</tr>
 			      </tbody>
 			      </c:forEach>
