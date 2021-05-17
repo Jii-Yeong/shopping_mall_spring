@@ -44,7 +44,7 @@
 			   			<td>${read.id}</td>
 			   			<td>${read.fileName}</td>
 			   			<td>${read.text}</td>
-			   			<td><a href="delete.do?user_num=${read}">[ 삭제 ]</a></td>
+			   			<td><a href="/shopping_mall/manage-page/manage-review-delete?num=${read.num}">[ 삭제 ]</a></td>
 			    	</tr>
 			      </tbody>
 			      </c:forEach>
@@ -60,12 +60,12 @@
 			       				<b>${p}</b>
 			       			</c:when>
 			       			<c:when test="${p != paging.nowPage}">
-			       				<a href="/shopping_mall/manage-review?nowPage=${p}">${p}</a>
+			       				<a href="/shopping_mall/manage-page/manage-review?nowPage=${p}">${p}</a>
 			       			</c:when>
 			       		</c:choose>
 			       	</c:forEach>
 			       	<c:if test="${paging.endPage != paging.lastPage}">
-			       		<a href="/shopping_mall/manage-review?nowPage=${paging.endPage + 1}">&gt;</a>
+			       		<a href="/shopping_mall/manage-page/manage-review?nowPage=${paging.endPage + 1}">&gt;</a>
 			       	</c:if>
 			       </div>
 			     <!-- ./Paging -->
