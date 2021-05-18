@@ -76,7 +76,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
+						<img src="${pageContext.request.contextPath}/resources/images/icons/logo-01.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -1285,9 +1285,9 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 				
 				var option2 = document.createElement("option");
 				var option3 = document.createElement("option");
-				option1.innerText = "${v.value.size_s}";
-				option2.innerText = "${v.value.size_m}";
-				option3.innerText = "${v.value.size_l}";
+				option1.innerText = "S 재고: " + "${v.value.size_s}";
+				option2.innerText = "M 재고: " + "${v.value.size_m}";
+				option3.innerText = "L 재고: " + "${v.value.size_l}";
 				selectSize.append(option1);
 				selectSize.append(option2);
 				selectSize.append(option3);

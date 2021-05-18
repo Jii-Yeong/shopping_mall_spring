@@ -14,36 +14,34 @@
 
 </head>
 <body>
-	<header>관리자 페이지</header>
-	<div class="container-inner">
-		<div class="nav-inner">
-			<ul class="nav nav-stacked">
-	  			<li role="presentation"><a href="/shopping_mall/manage-page/manage-user">회원 관리</a></li>
-	  			<li role="presentation"><a href="/shopping_mall/manage-page/manage-review">리뷰 관리</a></li>
-	  			<li role="presentation"><a href="/shopping_mall/manage-page/manage-product">상품 관리</a></li>
-	  			<li role="presentation"><a href="/shopping_mall/manage-page/manage-upload">상품 추가</a></li>
-	 			<li role="presentation"><a>로그아웃</a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane active">
-			<p class="welcome-admin">환영합니다 admin 님</p>
-		</div>
-	</div>
-<script> 
-	function setThumbnail(event) { 
-		for (var image of event.target.files) { 
-			var reader = new FileReader(); reader.onload = function(event) { 
-				var img = document.createElement("img"); 
-				img.setAttribute("src", event.target.result)
-				img.setAttribute("class", "img-responsive img-thumbnail");
-				document.querySelector("div#image_container").appendChild(img); 
-				}; 
-				reader.readAsDataURL(image); 
-		} 
-	} 
-</script>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">관리자 페이지</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/shopping_mall/manage-page/manage-user">회원 관리</a></li>
+        <li><a href="/shopping_mall/manage-page/manage-review">리뷰 관리</a></li>
+        <li><a href="/shopping_mall/manage-page/manage-product">상품 관리</a></li>
+        <li><a href="/shopping_mall/manage-page/manage-upload">상품 추가</a></li>
+        <li><a href="#">로그아웃</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/shopping_mall">Home</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<p class="welcome-admin">환영합니다 admin 님</p>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
 
