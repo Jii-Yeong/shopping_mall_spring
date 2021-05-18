@@ -18,18 +18,17 @@ Spring을 활용한 쇼핑몰 웹 사이트 구현
 
 ## 웹 구성
 - 메인 페이지
-![image](https://user-images.githubusercontent.com/57383657/118609275-8c152a80-b7f5-11eb-864c-858d2fd3aa1a.png)
-![image](https://user-images.githubusercontent.com/57383657/118609354-9afbdd00-b7f5-11eb-8e3b-9bd10521fbdc.png)
-![image](https://user-images.githubusercontent.com/57383657/118609409-a9e28f80-b7f5-11eb-980a-91e99b12da44.png)
+![메인1](https://user-images.githubusercontent.com/57383657/118613122-6853e380-b7f9-11eb-8ed0-7289ce3c0ff7.gif)
+![메인2](https://user-images.githubusercontent.com/57383657/118613131-6a1da700-b7f9-11eb-8381-f6b939a42f5f.gif)
+![상품1](https://user-images.githubusercontent.com/57383657/118613155-71dd4b80-b7f9-11eb-8ee8-676230a11294.gif)
+![상품2](https://user-images.githubusercontent.com/57383657/118613163-74d83c00-b7f9-11eb-83e0-f96dba186eca.gif)
 
 - 관리자 페이지
-![image](https://user-images.githubusercontent.com/57383657/118609555-d1395c80-b7f5-11eb-8436-f1ba79d447d0.png)
-![image](https://user-images.githubusercontent.com/57383657/118609613-e0b8a580-b7f5-11eb-9b0e-e5e98f26e4bb.png)
-![image](https://user-images.githubusercontent.com/57383657/118609695-f4640c00-b7f5-11eb-9d25-fe02408ab492.png)
-![image](https://user-images.githubusercontent.com/57383657/118609872-270e0480-b7f6-11eb-9722-ea244f113b9e.png)
+![관리자페이지](https://user-images.githubusercontent.com/57383657/118613193-7a358680-b7f9-11eb-9821-88b60f2a0f99.gif)
 
 - 리뷰 페이지
-- ![image](https://user-images.githubusercontent.com/57383657/118609917-368d4d80-b7f6-11eb-9738-8358bece5a09.png)
+![리뷰](https://user-images.githubusercontent.com/57383657/118613183-77d32c80-b7f9-11eb-8e78-0b724be4d86e.gif)
+
 
 ## 참여자
 - 김혜리, 남제현, 양종문, 이무현, 이주현, 서지영
