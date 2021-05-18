@@ -9,6 +9,8 @@ public class Product {
 	private int price;
 	private String description;
 	
+	public Product() {}
+	
 	public Product(String name, String photo_1, String photo_2, String photo_3, int price, String description) {
 		super();
 		this.name = name;
