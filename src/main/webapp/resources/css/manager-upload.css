@@ -13,13 +13,12 @@
 
 .welcome-admin {
 	width: 500px;
-	height: 500px;
 	position: absolute;
-	left: 50%;
+	left: 40%;
     right: 50%;
     top: 50%;
+    bottom: 50%;
 	font-size: 50px;
-	
 }
 
 #image_container {
