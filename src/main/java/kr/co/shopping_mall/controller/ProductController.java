@@ -16,5 +16,6 @@ public class ProductController {
 	public String index(Model model) {
 		model.addAttribute("product_list", service.readAll());
 		return "index";
+		
 	}
 }
