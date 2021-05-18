@@ -350,7 +350,7 @@
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
-									Women Collection 2018
+									Women Collection 2021
 								</span>
 							</div>
 								
@@ -398,7 +398,7 @@
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
-									Men Collection 2018
+									Men Collection 2021
 								</span>
 							</div>
 								
@@ -437,7 +437,7 @@
 								</span>
 
 								<span class="block1-info stext-102 trans-04">
-									Spring 2018
+									Spring 2021
 								</span>
 							</div>
 
@@ -462,7 +462,7 @@
 								</span>
 
 								<span class="block1-info stext-102 trans-04">
-									Spring 2018
+									Spring 2021
 								</span>
 							</div>
 
@@ -1104,53 +1104,6 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 			</div>
 		</div>
 	</div>
-		<script>
-				function setText(id) {
-					<c:forEach var="product_list" items="${ product_list }">
-						var getId = Number("${ product_list.product_id }");
-						console.log(id);
-						if (id == getId) {
-							<c:set var="id" value="${ product_list.product_id }" />
-							document.getElementById("product_name").innerText = "${ product_list.name }";
-							document.getElementById("product_price").innerText = "${ product_list.price }";
-							document.getElementById("product_description").innerText = "${ product_list.description }";
-							
-							var path1 = "${ product_list.photo_1 }";
-							var path2 = "${ product_list.photo_2 }";
-							var path3 = "${ product_list.photo_3 }";
-							
-							var pathes = [path1, path2, path3];
-							var imgTag = [];
-							
-							var tagList = document.getElementsByTagName("li");
-							for (var i = 0; i < tagList.length; i++) {
-								var liTag = tagList[i].getAttribute("role");
-								if (liTag === 'presentation') {
-									var liTag = tagList[i].firstElementChild;
-									imgTag.push(liTag);
-								}
-							}
-							console.log(imgTag);
-							for (var i = 0; i < 3; i++) {
-								var photoIndex = 'product_photo' + String(i + 1);
-								if (pathes[i]) {
-									document.getElementById(photoIndex).style.display = 'block';
-									imgTag[i].style.display = 'block';
-									imgTag[i].setAttribute('src', 'http://localhost:8080/shopping_mall/resources/imageUpload/' + pathes[i]);
-									console.log(photoIndex);
-									document.getElementById(photoIndex).setAttribute('src', 'http://localhost:8080/shopping_mall/resources/imageUpload/' + pathes[i]);
-								} else {
-									document.getElementById(photoIndex).style.display = 'none';
-									imgTag[i].style.display = 'none';
-								}
-							}
-						}
-					</c:forEach>
-				}
-		</script>
-	
-	
-
 <!--===============================================================================================-->	
 	<script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -1201,30 +1154,23 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 		$('.js-addwish-b2').on('click', function(e){
 			e.preventDefault();
 		});
-
 		$('.js-addwish-b2').each(function(){
 			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
-
 				$(this).addClass('js-addedwish-b2');
 				$(this).off('click');
 			});
 		});
-
 		$('.js-addwish-detail').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
-
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
-
 				$(this).addClass('js-addedwish-detail');
 				$(this).off('click');
 			});
 		});
-
 		/*---------------------------------------------*/
-
 		$('.js-addcart-detail').each(function(){
 			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 			$(this).on('click', function(){
@@ -1244,7 +1190,6 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 				scrollingThreshold: 1000,
 				wheelPropagation: false,
 			});
-
 			$(window).on('resize', function(){
 				ps.update();
 			})
@@ -1252,7 +1197,50 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 	</script>
 <!--===============================================================================================-->
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-
+	<script>
+				function setText(id) {
+					<c:forEach var="product_list" items="${ product_list }">
+						var getId = Number("${ product_list.product_id }");
+						console.log(id);
+						if (id == getId) {
+							<c:set var="id" value="${ product_list.product_id }" />
+							document.getElementById("product_name").innerText = "${ product_list.name }";
+							document.getElementById("product_price").innerText = "${ product_list.price }";
+							document.getElementById("product_description").innerText = "${ product_list.description }";
+							
+							var path1 = "${ product_list.photo_1 }";
+							var path2 = "${ product_list.photo_2 }";
+							var path3 = "${ product_list.photo_3 }";
+							
+							var pathes = [path1, path2, path3];
+							var imgTag = [];
+							
+							var tagList = document.getElementsByTagName("li");
+							for (var i = 0; i < tagList.length; i++) {
+								var liTag = tagList[i].getAttribute("role");
+								if (liTag === 'presentation') {
+									var liTag = tagList[i].firstElementChild;
+									imgTag.push(liTag);
+								}
+							}
+							console.log(imgTag);
+							for (var i = 0; i < 3; i++) {
+								var photoIndex = 'product_photo' + String(i + 1);
+								if (pathes[i]) {
+									document.getElementById(photoIndex).style.display = 'block';
+									imgTag[i].style.display = 'block';
+									imgTag[i].setAttribute('src', 'http://localhost:8080/shopping_mall/resources/imageUpload/' + pathes[i]);
+									console.log(photoIndex);
+									document.getElementById(photoIndex).setAttribute('src', 'http://localhost:8080/shopping_mall/resources/imageUpload/' + pathes[i]);
+								} else {
+									document.getElementById(photoIndex).style.display = 'none';
+									imgTag[i].style.display = 'none';
+								}
+							}
+						}
+					</c:forEach>
+				}
+		</script>
 
 </body>
 </html>
