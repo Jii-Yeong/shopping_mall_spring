@@ -39,7 +39,12 @@ Spring을 활용한 쇼핑몰 웹 사이트 구현
 - 양종문 : 리뷰 게시판, 리뷰 게시판 관리 페이지
 - 이무현 :
 - 이주현 :
-- 서지영 : 상품 업로드, 상품 
+- 서지영 : 상품 업로드, 상품 View, 상품 Detail View
 
 ## 참고 자료
--
+
+### 템플릿
+- [Cozastore - Free HTML5 eCommerce Website Template](https://themewagon.com/themes/free-html5-ecommerce-website-template/)
+
+### 첨부 사진
+- [Unsplash](https://unsplash.com/)
