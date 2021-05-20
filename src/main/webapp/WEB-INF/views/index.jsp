@@ -55,7 +55,7 @@
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="qna-board.jsp" class="flex-c-m trans-04 p-lr-25">
+						<a href="qna" class="flex-c-m trans-04 p-lr-25">
 							Q & A
 						</a>
 
@@ -183,7 +183,7 @@
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="qna-board.jsp" class="flex-c-m p-lr-10 trans-04">
+						<a href="qna" class="flex-c-m p-lr-10 trans-04">
 							Q & A
 						</a>
 
@@ -863,7 +863,7 @@
 						</li>
 
 						<li class="p-b-10">
-							<a href="qna-board.jsp" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="qna" class="stext-107 cl7 hov-cl1 trans-04">
 								Q & A
 							</a>
 						</li>

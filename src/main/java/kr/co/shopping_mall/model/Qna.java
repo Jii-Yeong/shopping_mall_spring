@@ -1,66 +1,74 @@
 package kr.co.shopping_mall.model;
 
+import java.util.Date;
+
 public class Qna {
 	private int qna_num;
-	private String id;
+	private String writer;
 	private String title;
 	private String content;
-	private String date;
-	private int available;
-	
+	private Date regDate;
+	private int views;
+
 	public Qna() {
 		super();
 	}
-	
-	public Qna(String id, String title, String date, int available) {
+
+	public Qna(String writer, String title, Date regDate, int views) {
 		super();
-		this.id = id;
+		this.writer = writer;
 		this.title = title;
-		this.date = date;
-		this.available = available;
+		this.regDate = regDate;
+		this.views = views;
 	}
 
-	public Qna(String id, String title, String content, String date, int available) {
-		super();
-		this.id = id;
+	public Qna(String writer, String title, String content) {
+		this.writer = writer;
 		this.title = title;
 		this.content = content;
-		this.date = date;
-		this.available = available;
 	}
-	
-	public Qna(int qna_num, String id, String title, String content, String date, int available) {
+
+	public Qna(String writer, String title, String content, Date regDate) {
+		super();
+		this.writer = writer;
+		this.title = title;
+		this.content = content;
+		this.regDate = regDate;
+	}
+
+	public Qna(String writer, String title, String content, Date regDate, int views) {
+		super();
+		this.writer = writer;
+		this.title = title;
+		this.content = content;
+		this.regDate = regDate;
+		this.views = views;
+	}
+
+	public Qna(int qna_num, String writer, String title, String content, Date regDate, int views) {
 		super();
 		this.qna_num = qna_num;
-		this.id = id;
+		this.writer = writer;
 		this.title = title;
 		this.content = content;
-		this.date = date;
-		this.available = available;
-	}
-	
-	public Qna(String id, String title, String content, String date) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.content = content;
-		this.date = date;
+		this.regDate = regDate;
+		this.views = views;
 	}
 
-	public int getQna_Num() {
+	public int getQna_num() {
 		return qna_num;
 	}
 
-	public void setQna_Num(int qna_num) {
+	public void setQna_num(int qna_num) {
 		this.qna_num = qna_num;
 	}
 
-	public String getId() {
-		return id;
+	public String getWriter() {
+		return writer;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 
 	public String getTitle() {
@@ -79,24 +87,25 @@ public class Qna {
 		this.content = content;
 	}
 
-	public String getDate() {
-		return date;
-	}
-	
-	public void setDate(String date) {
-		this.date = date;
+	public Date getRegDate() {
+		return regDate;
 	}
 
-	public int getAvailable() {
-		return available;
+	public void setRegDate(Date date) {
+		this.regDate = date;
 	}
 
-	public void setAvailable(int available) {
-		this.available = available;
+	public int getViews() {
+		return views;
+	}
+
+	public void setViews(int views) {
+		this.views = views;
 	}
 
 	@Override
 	public String toString() {
-		return "Qna [qna_num=" + qna_num + ", id=" + id + ", title=" + title + ", date=" + date + "]";
+		return "Qna [qna_num=" + qna_num + ", writer=" + writer + ", title=" + title + ", content=" + content
+				+ ", regDate=" + regDate + ", views=" + views + "]";
 	}
 }
