@@ -25,7 +25,7 @@ public class ReviewService {
 		return dao.reviewCount();
 	}
 	
-	public int reviewDelete(int num) {
-		return dao.reviewDelete(num);
+	public void reviewDelete(int num, String path) {
+		dao.reviewDelete(num, path);
 	}
 }
