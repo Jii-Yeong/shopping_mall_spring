@@ -34,12 +34,17 @@ Spring을 활용한 쇼핑몰 웹 사이트 구현
 - 김혜리, 남제현, 양종문, 이무현, 이주현, 서지영
 
 ## 개발 파트
-- 김혜리 :
+- 김혜리 : 관리자 페이지 회원 & 상품 조회, 수정, 삭제
 - 남제현 :
-- 양종문 :
+- 양종문 : 리뷰 게시판, 리뷰 게시판 관리 페이지, 페이징 구현
 - 이무현 :
-- 이주현 :
-- 서지영 : 상품 업로드, 상품 
+- 이주현 : 회원가입(일반), 로그인(일반, 관리자)
+- 서지영 : 상품 업로드, 상품 View, 상품 Detail View
 
 ## 참고 자료
--
+
+### 템플릿
+- [Cozastore - Free HTML5 eCommerce Website Template](https://themewagon.com/themes/free-html5-ecommerce-website-template/)
+
+### 첨부 사진
+- [Unsplash](https://unsplash.com/)
