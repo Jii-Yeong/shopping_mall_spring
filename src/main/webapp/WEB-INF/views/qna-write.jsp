@@ -8,11 +8,11 @@
 <!-- 뷰포트 -->
 <meta name="viewport" content="width=device-width" initial-scale="1">
 <!-- 스타일시트 참조  -->
-<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <title>Q & A</title>
 </head>
 <body>
-<%-- 
+	<%-- 
 	<% //로긴한사람이라면 userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
@@ -29,12 +29,12 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp">메인페이지</a>
+			<a class="navbar-brand" href="/shopping_mall">메인페이지</a>
 		</div>
 		<div class="collapse navbar-collapse"
 			id="#bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="qna-board.jsp">Q & A 게시판</a></li>
+				<li class="active"><a href="qna">Q & A 게시판</a></li>
 			</ul>
 <%-- 
 			<%
@@ -76,7 +76,7 @@
 	<!-- 글쓰기 페이지 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" action="qna-writeAction.jsp">
+			<form method="post" action="/shopping_mall/qna/qna-writeAction">
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
 					<thead>
@@ -102,7 +102,7 @@
 
 	<!-- 애니매이션 담당 JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap/bootstrap.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
 
 </body>
 </html>

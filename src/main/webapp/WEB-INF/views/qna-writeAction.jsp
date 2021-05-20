@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="board.qna.Qna"%>
-<%@page import="board.qna.QnaDao"%>
+<%@page import="kr.co.shopping_mall.dao.QnaDao"%>
+<%@page import="kr.co.shopping_mall.model.Qna"%>
 <%@page import="java.io.PrintWriter"%>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -9,7 +9,7 @@
 %>
 
 <!-- 한명의 회원정보를 담는 user클래스를 자바 빈즈로 사용 / scope:페이지 현재의 페이지에서만 사용-->
-<jsp:useBean id="qna" class="board.qna.Qna" scope="page" />
+<jsp:useBean id="qna" class="kr.co.shopping_mall.model.Qna" scope="page" />
 <!-- // Bbs bbs = new Bbs(); -->
 <jsp:setProperty name="qna" property="title" />
 <!-- bbs.setBbsTitle(requrst) -->
@@ -17,6 +17,7 @@
 
 <%
 	System.out.println(qna);
+	Qna qna2 = new Qna();
 %>
 
 <!DOCTYPE html>
@@ -66,8 +67,7 @@
 	%>
  --%>
 	<%
-		QnaDao qnaDao = new QnaDao();
-		int result = QnaDao.qnaAdd(new Qna(qna.getId(), qna.getTitle(), qna.getContent(), qna.getDate()));
+		//int result = QnaDao.addQna(new Qna(qna.getId(), qna.getTitle(), qna.getContent(), qna.getDate()));
 		/*
 		if (result == -1) {
 			PrintWriter script = response.getWriter();
@@ -79,7 +79,7 @@
 		*/
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("location.href='qna-board.jsp'");
+			script.println("location.href='/shopping_mall/qna'");
 			//script.println("history.back()");
 			script.println("</script>");
 		/* } */

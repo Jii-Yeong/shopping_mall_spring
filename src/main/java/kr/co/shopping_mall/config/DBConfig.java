@@ -12,6 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import kr.co.shopping_mall.dao.ProductDao;
+import kr.co.shopping_mall.dao.QnaDao;
 import kr.co.shopping_mall.dao.UserDao;
 import kr.co.shopping_mall.dao.ReviewDAO;
 
@@ -64,6 +65,12 @@ public class DBConfig {
 	public ReviewDAO reviewDAO(JdbcTemplate jdbcTemplate) {
 		return new ReviewDAO(jdbcTemplate);
 	}
-}
+	
+	@Bean
+	@Autowired
+	public QnaDao qnaDao(JdbcTemplate jdbcTemplate) {
+		return new QnaDao(jdbcTemplate);
+	}
+} 
 
 	
