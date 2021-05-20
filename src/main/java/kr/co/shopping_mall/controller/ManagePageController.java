@@ -68,8 +68,10 @@ public class ManagePageController {
 	}
 	
 	@GetMapping("/manage-review-delete")
-	public String reviewDelete(@RequestParam(value = "num", required = false) String num) {
-		reviewService.reviewDelete(Integer.valueOf(num));
+	public String reviewDelete(@RequestParam(value = "num", required = false) String num, HttpServletRequest request) {
+		String Path = request.getSession().getServletContext().getRealPath("");
+		Path = Path.substring(0, Path.indexOf(".metadata")) + "shopping_mall_spring/src/main/webapp/resources/imageUpload/";
+		reviewService.reviewDelete(Integer.valueOf(num), Path);
 		return "redirect:/manage-page/manage-review";
 	}
 	

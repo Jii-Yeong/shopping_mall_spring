@@ -1,5 +1,6 @@
 package kr.co.shopping_mall.dao;
 
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -43,12 +44,18 @@ public class ReviewDAO {
 		return jdbcTemplate.queryForObject("SELECT count(*) FROM review", Integer.class);
 	}
 	
-	public int reviewDelete(int num) {
-		return jdbcTemplate.update("DELETE FROM review WHERE number = ?", num);
+	public void reviewDelete(int num, String path) {
+		List<Review> list = reviewReadByFileName(num);
+		String filePath = path + list.get(0).getFileName();
+		System.out.println(filePath);
+		File file = new File(filePath);
+		if (file.exists()) {
+			file.delete();
+			jdbcTemplate.update("DELETE FROM review WHERE number = ?", num);
+		}
 	}
 	
-	
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
+	public List<Review> reviewReadByFileName(int num) {
+		return jdbcTemplate.query("SELECT * FROM review WHERE number = ?", new Object[] { num }, new ReviewMapper());
 	}
 }
