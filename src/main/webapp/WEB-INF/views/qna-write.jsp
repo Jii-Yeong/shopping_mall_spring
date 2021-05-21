@@ -34,7 +34,7 @@
 		<div class="collapse navbar-collapse"
 			id="#bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="qna">Q & A 게시판</a></li>
+				<li class="active"><a href="/shopping_mall/qna">Q & A 게시판</a></li>
 			</ul>
 <%-- 
 			<%
@@ -103,6 +103,5 @@
 	<!-- 애니매이션 담당 JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
-
 </body>
 </html>
