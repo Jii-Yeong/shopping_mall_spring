@@ -10,9 +10,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-page.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manager-upload.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
+<script src="https://kit.fontawesome.com/1ca40a0930.js" crossorigin="anonymous"></script>
+
 <style>
 	.zc-body {
 		background: #fff;
@@ -29,33 +28,8 @@
 	}
 </style>
 </head>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/shopping_mall/manage-page/">관리자 페이지</a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-      	<li><a href="/shopping_mall/manage-page/manage-dashboard">대시 보드</a></li>
-        <li><a href="/shopping_mall/manage-page/manage-user">회원 관리</a></li>
-        <li><a href="/shopping_mall/manage-page/manage-review">리뷰 관리</a></li>
-        <li><a href="/shopping_mall/manage-page/manage-product">상품 관리</a></li>
-        <li><a href="/shopping_mall/manage-page/manage-upload">상품 추가</a></li>
-        <li><a href="#">로그아웃</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/shopping_mall">Home</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 <body class="zc-body">
+	<jsp:include page="nav-bar.jsp" />
 	<div id="myChart" class="chart--container">
 		<a href="https://www.zingchart.com/" rel="noopener" class="zc-ref">방문자 요약</a>
 	</div>
