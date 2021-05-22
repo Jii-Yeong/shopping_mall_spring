@@ -7,6 +7,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -60,7 +61,11 @@ public class ManagePageController {
 	public String dashboardLoad(Model model) {
 		String today = LocalDate.now().format(DateTimeFormatter.ofPattern("MM월 dd일"));
 		visitorService.ExistToday(today);
-		List<Visitor> dateList = visitorService.VisitorRead();
+		List<Visitor> tempdateList = visitorService.VisitorRead();
+		List<Visitor> dateList = new ArrayList<>();
+		for (int i = tempdateList.size() - 1; i >= 0; i--) {
+			dateList.add(tempdateList.get(i));
+		}
 		model.addAttribute("dateList", dateList);
 		return "manage-dashboard";
 	}
