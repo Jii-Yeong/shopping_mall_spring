@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manager-upload.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
-
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -28,6 +27,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+      	<li><a href="/shopping_mall/manage-page/manage-dashboard">대시 보드</a></li>
         <li><a href="/shopping_mall/manage-page/manage-user">회원 관리</a></li>
         <li><a href="/shopping_mall/manage-page/manage-review">리뷰 관리</a></li>
         <li><a href="/shopping_mall/manage-page/manage-product">상품 관리</a></li>

@@ -49,10 +49,8 @@ public class ReviewDAO {
 		String filePath = path + list.get(0).getFileName();
 		System.out.println(filePath);
 		File file = new File(filePath);
-		if (file.exists()) {
-			file.delete();
-			jdbcTemplate.update("DELETE FROM review WHERE number = ?", num);
-		}
+		file.delete();
+		jdbcTemplate.update("DELETE FROM review WHERE number = ?", num);
 	}
 	
 	public List<Review> reviewReadByFileName(int num) {
