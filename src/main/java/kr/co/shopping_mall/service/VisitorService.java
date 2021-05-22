@@ -20,4 +20,8 @@ public class VisitorService {
 	public void ExistToday(String today) {
 		dao.ExistToday(today);
 	}
+	
+	public void VisitorUpdateCnt(String today) {
+		dao.VisitorUpdateCnt(today);
+	}
 }

@@ -60,6 +60,7 @@ public class ManagePageController {
 	public String dashboardLoad(Model model) {
 		String today = LocalDate.now().format(DateTimeFormatter.ofPattern("MM월 dd일"));
 		visitorService.ExistToday(today);
+		visitorService.VisitorUpdateCnt(today);
 		List<Visitor> dateList = visitorService.VisitorRead();
 		model.addAttribute("dateList", dateList);
 		return "manage-dashboard";
