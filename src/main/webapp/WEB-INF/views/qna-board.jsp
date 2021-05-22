@@ -13,10 +13,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/main.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bulletin-board.css">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+	href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script
@@ -29,7 +26,7 @@
 	<section id="team" class="pb-5">
 
 		<!-- 네비게이션  -->
-		<nav class="navbar fixed-top navbar-light bg-light">
+		<nav class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="bs-example-navbar-collapse-1">
@@ -51,7 +48,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">접속하기<span class="caret"></span></a>
+						aria-expanded="false">MENU<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">로그인</a></li>
 							<li><a href="#">회원가입</a></li>
@@ -84,8 +81,8 @@
 			</c:if>
 			<div class="row">
 				<c:if test="${ count > 0 }">
-				
-				
+
+
 					<table class="table table-striped"
 						style="text-align: center; border: 2px solid #dddddd">
 						<thead>
@@ -97,8 +94,8 @@
 								<th style="background-color: #eeeeee; text-align: center;">조회수</th>
 							</tr>
 						</thead>
-					
-					
+
+
 						<c:forEach var="read" items="${ read }">
 							<tbody>
 								<tr>
@@ -113,8 +110,8 @@
 					</table>
 				</c:if>
 			</div>
-			
-			
+
+
 			<a href="/shopping_mall/qna/qna-write"
 				class="btn btn-primary pull-right">글쓰기</a> <br> <br>
 			<!-- 페이징처리 -->
@@ -140,5 +137,10 @@
 			<!-- ./Paging -->
 		</div>
 	</section>
+
+	<!-- 애니매이션 담당 JQUERY -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
 </body>
 </html>
