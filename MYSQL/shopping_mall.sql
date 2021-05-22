@@ -135,6 +135,30 @@ INSERT INTO `product_info` VALUES (1,24,'Red',0,2,3),(2,24,'Yellow',1,2,3),(3,24
 UNLOCK TABLES;
 
 --
+-- Table structure for table `visitor`
+--
+
+DROP TABLE IF EXISTS `visitor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `visitor` (
+  `date` varchar(10) NOT NULL,
+  `cnt` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `visitor`
+--
+
+LOCK TABLES `visitor` WRITE;
+/*!40000 ALTER TABLE `visitor` DISABLE KEYS */;
+INSERT INTO `visitor` VALUES ('05월 16일',90),('05월 17일',5),('05월 18일',10),('05월 19일',60),('05월 20일',30),('05월 21일',20),('05월 22일',14);
+/*!40000 ALTER TABLE `visitor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping events for database 'mall_db'
 --
 

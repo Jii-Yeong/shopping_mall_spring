@@ -5,8 +5,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
@@ -26,10 +28,12 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kr.co.shopping_mall.model.Product;
 import kr.co.shopping_mall.model.ProductInfo;
 import kr.co.shopping_mall.model.User;
+import kr.co.shopping_mall.model.Visitor;
 import kr.co.shopping_mall.service.ProductService;
 import kr.co.shopping_mall.service.ReviewPagination;
 import kr.co.shopping_mall.service.ReviewService;
 import kr.co.shopping_mall.service.UserService;
+import kr.co.shopping_mall.service.VisitorService;
 
 @Controller
 @RequestMapping("/manage-page")
@@ -41,11 +45,24 @@ public class ManagePageController {
 	@Autowired
 	private ReviewService reviewService;
 	@Autowired
+	private VisitorService visitorService;
+	@Autowired
 	private ServletContext servletContext;
-	
+
 	@GetMapping
 	public String managePage() {
 		return "manage-page";
+	}
+	
+	//------------------------------ 대시 보드 ---------------------------------//
+	
+	@GetMapping("/manage-dashboard")
+	public String dashboardLoad(Model model) {
+		String today = LocalDate.now().format(DateTimeFormatter.ofPattern("MM월 dd일"));
+		visitorService.ExistToday(today);
+		List<Visitor> dateList = visitorService.VisitorRead();
+		model.addAttribute("dateList", dateList);
+		return "manage-dashboard";
 	}
 	
 	//------------------------------ 리뷰 ---------------------------------//
@@ -53,8 +70,6 @@ public class ManagePageController {
 	@GetMapping("/manage-review")
 	public String reviewload(Model model, @RequestParam(value="nowPage", required = false) String nowPage, ReviewPagination pagination){
 		int total = reviewService.reviewCount();
-		System.out.println("요청페이지 : " + nowPage);
-		System.out.println("토탈 : " + total);
 		if (nowPage == null) {
 			nowPage = "1";
 		}
@@ -62,8 +77,6 @@ public class ManagePageController {
 		model.addAttribute("count", reviewService.reviewCount());
 		model.addAttribute("paging", pagination);
 		model.addAttribute("read", reviewService.reviewRead(pagination.getStartRow() - 1));
-		System.out.println("시작 limit : " + pagination.getStartRow());
-		System.out.println("끝 limit : " + pagination.getEndRow());
 		return "manage-review";
 	}
 	
@@ -74,7 +87,6 @@ public class ManagePageController {
 		reviewService.reviewDelete(Integer.valueOf(num), Path);
 		return "redirect:/manage-page/manage-review";
 	}
-	
 	
 	//------------------------------ 유저 ---------------------------------//
 	
