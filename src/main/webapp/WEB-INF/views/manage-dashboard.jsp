@@ -56,14 +56,11 @@
   </div><!-- /.container-fluid -->
 </nav>
 <body class="zc-body">
-	<c:forEach var="dateList" items="${dateList}">
-		<ul>${dateList.date} : ${dateList.cnt}명</ul> 
-	</c:forEach>
 	<div id="myChart" class="chart--container">
 		<a href="https://www.zingchart.com/" rel="noopener" class="zc-ref">방문자 요약</a>
 	</div>
 	<script type="text/javascript">
-		let governmentRequests = [ 60, 50, 40, 30, 20, 10 ];
+		let governmentRequests = [];
 
 		// Chart Configuration
 		let chartConfig = {
@@ -97,7 +94,7 @@
 			},
 			tooltip : {
 				callout : true,
-				text : '20',
+				text : '숫자',
 				backgroundColor : '#F7F9FA',
 				fontColor : '#505050',
 				fontSize : '18px',
@@ -108,7 +105,7 @@
 				aspect : 'spline'
 			},
 			scaleX : {
-				labels : [ "1", "2", "3", "4", "5", "6" ]
+				labels : []
 			},
 			scaleY : {
 				values : '0:100:20'
@@ -125,6 +122,18 @@
 				}
 			} ]
 		};
+		
+		const chart = chartConfig['scaleX'];
+	    const label = chart['labels'];
+	    <c:forEach var="dateList" items="${dateList}">
+	        var date = "${dateList.date}";
+	        label.push(date);
+   		</c:forEach>
+   		
+   		<c:forEach var="dateList" items="${dateList}">
+			var visitorsNum = Number("${dateList.cnt}");
+			governmentRequests.push(visitorsNum);
+		</c:forEach>
 
 		// Render Method
 		zingchart.render({
