@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.shopping_mall.dao.QnaDao;
 import kr.co.shopping_mall.model.Qna;
 import kr.co.shopping_mall.service.QnaService;
 import kr.co.shopping_mall.service.ReviewPagination;
@@ -18,7 +19,9 @@ import kr.co.shopping_mall.service.ReviewPagination;
 public class QnaController {
 	@Autowired
 	private QnaService service;
-
+	@Autowired
+	private QnaDao dao;
+	
 	@GetMapping
 	public String qna(Model model, @RequestParam(value = "nowPage", required = false) String nowPage,
 			ReviewPagination pagination) {
@@ -29,6 +32,7 @@ public class QnaController {
 			nowPage = "1";
 		}
 		pagination = new ReviewPagination(total, Integer.valueOf(nowPage));
+		model.addAttribute("list", dao);
 		model.addAttribute("count", service.qnaCount());
 		model.addAttribute("paging", pagination);
 		model.addAttribute("read", service.qnaRead(pagination.getStartRow() - 1));

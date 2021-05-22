@@ -8,18 +8,18 @@ public class Qna {
 	private String title;
 	private String content;
 	private Date regDate;
-	private int views;
+	private int viewCnt;
 
 	public Qna() {
 		super();
 	}
 
-	public Qna(String writer, String title, Date regDate, int views) {
+	public Qna(String writer, String title, Date regDate, int viewCnt) {
 		super();
 		this.writer = writer;
 		this.title = title;
 		this.regDate = regDate;
-		this.views = views;
+		this.viewCnt = viewCnt;
 	}
 
 	public Qna(String writer, String title, String content) {
@@ -36,23 +36,23 @@ public class Qna {
 		this.regDate = regDate;
 	}
 
-	public Qna(String writer, String title, String content, Date regDate, int views) {
+	public Qna(String writer, String title, String content, Date regDate, int viewCnt) {
 		super();
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.regDate = regDate;
-		this.views = views;
+		this.viewCnt = viewCnt;
 	}
 
-	public Qna(int qna_num, String writer, String title, String content, Date regDate, int views) {
+	public Qna(int qna_num, String writer, String title, String content, Date regDate, int viewCnt) {
 		super();
 		this.qna_num = qna_num;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.regDate = regDate;
-		this.views = views;
+		this.viewCnt = viewCnt;
 	}
 
 	public int getQna_num() {
@@ -95,17 +95,17 @@ public class Qna {
 		this.regDate = date;
 	}
 
-	public int getViews() {
-		return views;
+	public int getviewCnt() {
+		return viewCnt;
 	}
 
-	public void setViews(int views) {
-		this.views = views;
+	public void setviewCnt(int viewCnt) {
+		this.viewCnt = viewCnt;
 	}
 
 	@Override
 	public String toString() {
 		return "Qna [qna_num=" + qna_num + ", writer=" + writer + ", title=" + title + ", content=" + content
-				+ ", regDate=" + regDate + ", views=" + views + "]";
+				+ ", regDate=" + regDate + ", viewCnt=" + viewCnt + "]";
 	}
 }
