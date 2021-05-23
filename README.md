@@ -24,7 +24,8 @@ Spring을 활용한 쇼핑몰 웹 사이트 구현
 ![상품2](https://user-images.githubusercontent.com/57383657/118613163-74d83c00-b7f9-11eb-83e0-f96dba186eca.gif)
 
 - 관리자 페이지<br>
-![관리자페이지](https://user-images.githubusercontent.com/57383657/118613193-7a358680-b7f9-11eb-9821-88b60f2a0f99.gif)
+![관리페이지](https://user-images.githubusercontent.com/79301442/119251111-af6a1c00-bbdf-11eb-8b15-36f493466d8d.gif)
+
 
 - 리뷰 페이지<br>
 ![리뷰](https://user-images.githubusercontent.com/57383657/118613183-77d32c80-b7f9-11eb-8e78-0b724be4d86e.gif)
@@ -36,7 +37,7 @@ Spring을 활용한 쇼핑몰 웹 사이트 구현
 ## 개발 파트
 - 김혜리 : 관리자 페이지 회원 & 상품 조회, 수정, 삭제
 - 남제현 : Q & A 게시판 
-- 양종문 : 리뷰 게시판, 리뷰 게시판 관리 페이지, 페이징 구현
+- 양종문 : 리뷰 게시판, 리뷰 게시판 관리 페이지, 페이징 구현, 방문자 수 차트 구현
 - 이무현 : 개인회원 마이페이지, 내 정보 관리, 탈퇴.
 - 이주현 : 회원가입(일반), 로그인(일반, 관리자)
 - 서지영 : 상품 업로드, 상품 View, 상품 Detail View
