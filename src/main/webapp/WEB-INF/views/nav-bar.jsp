@@ -9,7 +9,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">관리자 페이지</a>
+			<a class="navbar-brand" href="/shopping_mall/manage-page">관리자 페이지</a>
 		</div>
 
 		<div class="collapse navbar-collapse"
@@ -24,7 +24,7 @@
 	<!-- /.container-fluid -->
 </nav>
 <ul class="left-nav">
-	<a href="/shopping_mall/manage-page/manage-dashboard">
+	<a href="/shopping_mall/manage-page">
 		<li class="nav-bar">
 		<i class="fas fa-chart-bar"></i>
 			<p>대시 보드</p>

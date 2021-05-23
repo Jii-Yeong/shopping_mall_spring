@@ -50,14 +50,9 @@ public class ManagePageController {
 	@Autowired
 	private ServletContext servletContext;
 
-	@GetMapping
-	public String managePage() {
-		return "manage-page";
-	}
-	
 	//------------------------------ 대시 보드 ---------------------------------//
 	
-	@GetMapping("/manage-dashboard")
+	@GetMapping
 	public String dashboardLoad(Model model) {
 		String today = LocalDate.now().format(DateTimeFormatter.ofPattern("MM월 dd일"));
 		visitorService.ExistToday(today);

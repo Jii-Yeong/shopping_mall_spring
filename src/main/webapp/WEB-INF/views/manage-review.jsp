@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-page.css">
 <script src="https://kit.fontawesome.com/1ca40a0930.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
 	<jsp:include page="nav-bar.jsp" />
