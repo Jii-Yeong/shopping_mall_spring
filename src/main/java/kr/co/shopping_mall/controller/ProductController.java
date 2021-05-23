@@ -27,4 +27,9 @@ public class ProductController {
 		model.addAttribute("product_list", service.readAll());
 		return "index";
 	}
+	
+	@GetMapping("/shopping-cart")
+	public String shoppingCart(Model model) {
+		return "shopping-cart";
+	}
 }

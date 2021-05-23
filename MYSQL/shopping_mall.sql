@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `mall_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `mall_db`;
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: mall_db
@@ -185,7 +187,7 @@ CREATE TABLE `visitor` (
 
 LOCK TABLES `visitor` WRITE;
 /*!40000 ALTER TABLE `visitor` DISABLE KEYS */;
-INSERT INTO `visitor` VALUES ('05월 16일',90),('05월 17일',5),('05월 18일',10),('05월 19일',60),('05월 20일',30),('05월 21일',20),('05월 22일',14),('05월 23일',0);
+INSERT INTO `visitor` VALUES ('05월 16일',90),('05월 17일',5),('05월 18일',10),('05월 19일',60),('05월 20일',30),('05월 21일',20),('05월 22일',14),('05월 23일',4),('05�썡 22�씪',2),('05�썡 23�씪',2);
 /*!40000 ALTER TABLE `visitor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -206,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-23 16:47:51
+-- Dump completed on 2021-05-23 18:16:26
