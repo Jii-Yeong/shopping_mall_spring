@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.shopping_mall.dao.QnaDao;
@@ -40,35 +41,22 @@ public class QnaController {
 		System.out.println("끝 limit : " + pagination.getEndRow());
 		return "/qna-board";
 	}
-
-	@GetMapping("/list")
-	public String list(Model model) {
-		model.addAttribute("list", service.listAll());
-		return "qna/list";
-	}
-
-	@GetMapping("/read")
-	public String read(@RequestParam("bno") int bno, Model model) throws Exception {
-		model.addAttribute("board", service.read(bno));
-		return "qna/update";
-	}
-
+	
+//	@RequestMapping(value="/qna-write", method = RequestMethod.GET)
 	@GetMapping("/qna-write")
-	public String qnaWrite() {
+	public String addQnaGet(Qna qna, Model model) throws Exception {
+		System.out.println("addQna, GET방식 입니다.");
 		return "qna-write";
 	}
-
+	
+//	@RequestMapping(value = "qna-writeAction", method = RequestMethod.POST)
 	@PostMapping("qna-writeAction")
-	public String qnaWriteAction() {
-		return "qna-writeAction";
+	public String addQnaPost(Qna qna, Model model) throws Exception {
+		System.out.println("qna-writeAction, POST 방식 입니다.");
+        System.out.println(qna.toString());
+        service.addQna(qna);
+		return "redirect:/qna";
 	}
-
-//	@PostMapping("write")
-//	public String write(@ModelAttribute("board") Qna qna) {
-//		System.out.println(qna); //작업테스트
-//		service.addQna(qna);
-//		return "redirect:list";
-//	}
 
 	@RequestMapping("update")
 	public String modify(@ModelAttribute("board") Qna qna) {

@@ -9,9 +9,15 @@ public class Qna {
 	private String content;
 	private Date regDate;
 	private int viewCnt;
-
+	
 	public Qna() {
 		super();
+	}
+	
+	// 유저정보 받아오게되면 삭제할 메소드
+	public Qna(String title, String content) {
+		this.title = title;
+		this.content = content;
 	}
 
 	public Qna(String writer, String title, Date regDate, int viewCnt) {
