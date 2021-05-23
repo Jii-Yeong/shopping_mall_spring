@@ -30,7 +30,7 @@
 			<p>대시 보드</p>
 		</li>
 	</a>
-	<a href="#">
+	<a href="/shopping_mall/manage-page/manage-product-order">
 		<li class="nav-bar">
 		<i class="fas fa-box"></i>
 			<p>주문 정보</p>
