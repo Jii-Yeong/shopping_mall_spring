@@ -5,6 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,6 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<meta charset="UTF-8">
 <meta charset="UTF-8">
 <title>Q & A</title>
 </head>
@@ -100,9 +100,13 @@
 							<tbody>
 								<tr>
 									<td>${read.qna_num}</td>
+									<c:if test="${read.writer = null}">
+										<td>GUEST</td>
+									</c:if>
 									<td>${read.title}</td>
 									<td>${read.writer}</td>
 									<td>${read.regDate}</td>
+<%-- 									<td><fmt:formatDate	value="${read.regDate}" pattern="yyyy-MM-dd a HH:mm" /></td> --%>
 									<td>${read.viewCnt}</td>
 								</tr>
 							</tbody>

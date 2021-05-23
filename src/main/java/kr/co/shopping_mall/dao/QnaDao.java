@@ -2,7 +2,8 @@ package kr.co.shopping_mall.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -31,13 +32,13 @@ public class QnaDao {
 			String content = rs.getString("content");
 			Date date = rs.getDate("regDate");
 			int viewCnt = rs.getInt("viewCnt");
+			
 			return new Qna(qna_num, writer, title, content, date, viewCnt);
 		}
 	}
 
 	// qna 목록 불러오기
 	public List<Qna> selectAll() {
-		List<Qna> list = new ArrayList<Qna>();
 		return jdbcTemplate.query("SELECT * FROM qna", new QnaMapper());
 	}
 
@@ -59,8 +60,8 @@ public class QnaDao {
 	}
 
 	// 조회수 증가
-	public int updateViews(int qna_num) {
-		return jdbcTemplate.update("UPDATE qna SET views = views + 1" + " WHERE qna_num = ?", qna_num);
+	public int updateViewCnt(int qna_num) {
+		return jdbcTemplate.update("UPDATE qna SET viewCnt = viewCnt + 1" + " WHERE qna_num = ?", qna_num);
 	}
 
 	// qna 추가

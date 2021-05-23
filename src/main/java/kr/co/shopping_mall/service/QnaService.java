@@ -26,7 +26,7 @@ public class QnaService {
 	}
 
 	public Qna read(int qna_num) {
-		dao.updateViews(qna_num);
+		dao.updateViewCnt(qna_num);
 		return dao.selectOne(qna_num);
 	}
 
