@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/manage-page.css">
 <script src="https://kit.fontawesome.com/1ca40a0930.js" crossorigin="anonymous"></script>
-
 <style>
 	.zc-body {
 		background: #fff;
@@ -67,8 +66,8 @@
 				}
 			},
 			tooltip : {
+				text : [],
 				callout : true,
-				text : '숫자',
 				backgroundColor : '#F7F9FA',
 				fontColor : '#505050',
 				fontSize : '18px',
@@ -82,13 +81,13 @@
 				labels : []
 			},
 			scaleY : {
-				values : '0:100:20'
+				values : rate
 			},
 			series : [ {
 				values : governmentRequests,
 				text : '지표',
 				zIndex : 6,
-				alphaArea : 1,
+				alphaArea : 6,
 				lineColor : '#ffffff',
 				backgroundColor : '#33C4FF',
 				marker : {
@@ -96,12 +95,27 @@
 				}
 			} ]
 		};
+		var cnt = 0;
+		var max = 0;
+		<c:forEach var="dateList" items="${dateList}">
+	        cnt = "${dateList.cnt}"
+	        <c:if test="cnt >= temp">
+	        	max = cnt;
+	        </c:if>
+		</c:forEach>
+		var rate = '0:' + max + ':20';
 		
-		const chart = chartConfig['scaleX'];
-	    const label = chart['labels'];
+		const chart1 = chartConfig['scaleX'];
+	    const label = chart1['labels'];
+	    const chart2 = chartConfig['scaleY'];
+	    const value = chart2['values'];
+	    
+	    console.log(value);
+		
 	    <c:forEach var="dateList" items="${dateList}">
 	        var date = "${dateList.date}";
-	        label.push(date);
+	        var cnt = "${dateList.cnt}"
+	        label.push(date  + "\n" + cnt);
    		</c:forEach>
    		
    		<c:forEach var="dateList" items="${dateList}">
