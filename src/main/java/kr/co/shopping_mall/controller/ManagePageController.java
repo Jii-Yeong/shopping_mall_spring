@@ -30,6 +30,7 @@ import kr.co.shopping_mall.model.Product;
 import kr.co.shopping_mall.model.ProductInfo;
 import kr.co.shopping_mall.model.User;
 import kr.co.shopping_mall.model.Visitor;
+import kr.co.shopping_mall.service.OrderService;
 import kr.co.shopping_mall.service.ProductService;
 import kr.co.shopping_mall.service.ReviewPagination;
 import kr.co.shopping_mall.service.ReviewService;
@@ -48,8 +49,10 @@ public class ManagePageController {
 	@Autowired
 	private VisitorService visitorService;
 	@Autowired
+	private OrderService orderService;
+	@Autowired
 	private ServletContext servletContext;
-
+	
 	//------------------------------ 대시 보드 ---------------------------------//
 	
 	@GetMapping
@@ -205,5 +208,19 @@ public class ManagePageController {
 	public String deleteProduct(int productId) {
 		productService.delete(productId);
 		return "redirect:/manage-page/manage-product";
+	}
+	
+	//------------------------------ 주문 ---------------------------------//
+	@GetMapping("/manage-product-order") 
+	public String orderLoad(Model model) {
+		model.addAttribute("order_list", orderService.readAll());
+		return "product-order";
+	}
+	
+	@GetMapping("manage-order-delete")
+	public String deleteOrder(int productNum) {
+		orderService.delete(productNum);
+		return "redirect:/manage-page/manage-product-order";
+		
 	}
 }

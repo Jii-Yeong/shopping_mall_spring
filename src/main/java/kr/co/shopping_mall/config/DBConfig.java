@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import kr.co.shopping_mall.dao.OrderDao;
 import kr.co.shopping_mall.dao.ProductDao;
 import kr.co.shopping_mall.dao.QnaDao;
 import kr.co.shopping_mall.dao.UserDao;
@@ -77,6 +78,12 @@ public class DBConfig {
 	@Autowired
 	public VisitorDao visitorDao(JdbcTemplate jdbcTemplate) {
 		return new VisitorDao(jdbcTemplate);
+	}
+	
+	@Bean
+	@Autowired
+	public OrderDao orderDao(JdbcTemplate jdbcTemplate) {
+		return new OrderDao(jdbcTemplate);
 	}
 } 
 

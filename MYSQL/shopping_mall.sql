@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `mall_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `mall_db`;
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: mall_db
@@ -18,6 +16,68 @@ USE `mall_db`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `product_info`
+--
+
+DROP TABLE IF EXISTS `product_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_info` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `number` int NOT NULL,
+  `color` varchar(45) NOT NULL,
+  `size_s` int NOT NULL DEFAULT '0',
+  `size_m` int NOT NULL DEFAULT '0',
+  `size_l` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `number_idx` (`number`),
+  CONSTRAINT `number` FOREIGN KEY (`number`) REFERENCES `product_upload` (`number`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_info`
+--
+
+LOCK TABLES `product_info` WRITE;
+/*!40000 ALTER TABLE `product_info` DISABLE KEYS */;
+INSERT INTO `product_info` VALUES (1,24,'Red',0,2,3),(2,24,'Yellow',1,2,3),(3,24,'Blue',4,3,2),(4,24,'Mint',100,100,100),(5,1,'123',123,123,123);
+/*!40000 ALTER TABLE `product_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product_order`
+--
+
+DROP TABLE IF EXISTS `product_order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_order` (
+  `number` int NOT NULL AUTO_INCREMENT,
+  `product_num` int NOT NULL,
+  `user_id` varchar(20) NOT NULL,
+  `color` varchar(45) NOT NULL,
+  `size` varchar(5) NOT NULL,
+  `amount` int NOT NULL,
+  `total_price` int NOT NULL,
+  PRIMARY KEY (`number`),
+  KEY `product_num_idx` (`product_num`),
+  KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `product_num` FOREIGN KEY (`product_num`) REFERENCES `product_upload` (`number`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_order`
+--
+
+LOCK TABLES `product_order` WRITE;
+/*!40000 ALTER TABLE `product_order` DISABLE KEYS */;
+/*!40000 ALTER TABLE `product_order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `product_upload`
 --
 
@@ -33,7 +93,7 @@ CREATE TABLE `product_upload` (
   `price` int NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +102,7 @@ CREATE TABLE `product_upload` (
 
 LOCK TABLES `product_upload` WRITE;
 /*!40000 ALTER TABLE `product_upload` DISABLE KEYS */;
+INSERT INTO `product_upload` VALUES (1,'123','2021-05-23-15_54_23_b3bb4b30a796335e054a4431085841e1.jpg',NULL,NULL,123,'123');
 /*!40000 ALTER TABLE `product_upload` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +119,7 @@ CREATE TABLE `review` (
   `fileName` varchar(500) NOT NULL,
   `text` text NOT NULL,
   UNIQUE KEY `number_UNIQUE` (`number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +152,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`user_num`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `phone_num_UNIQUE` (`phone_num`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,36 +163,6 @@ LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES (1,'id','password','name','2021-05-17',1012345678,'부산광역시 해운대구','2021-05-17 17:37:18',1),(2,'abc','password','이름','2020-11-17',1098765432,'서울특별시 관악구','2021-05-17 17:37:19',1),(3,'def','password','대한','1994-05-17',1055515548,'부산광역시 부산진구','2021-05-17 17:37:19',1),(4,'ggg','password','민국','2000-07-18',1012515545,'광주광역시','2021-05-17 17:37:20',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `product_info`
---
-
-DROP TABLE IF EXISTS `product_info`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `product_info` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `number` int NOT NULL,
-  `color` varchar(45) NOT NULL,
-  `size_s` int NOT NULL DEFAULT '0',
-  `size_m` int NOT NULL DEFAULT '0',
-  `size_l` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `number_idx` (`number`),
-  CONSTRAINT `number` FOREIGN KEY (`number`) REFERENCES `product_upload` (`number`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `product_info`
---
-
-LOCK TABLES `product_info` WRITE;
-/*!40000 ALTER TABLE `product_info` DISABLE KEYS */;
-INSERT INTO `product_info` VALUES (1,24,'Red',0,2,3),(2,24,'Yellow',1,2,3),(3,24,'Blue',4,3,2),(4,24,'Mint',100,100,100);
-/*!40000 ALTER TABLE `product_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -154,7 +185,7 @@ CREATE TABLE `visitor` (
 
 LOCK TABLES `visitor` WRITE;
 /*!40000 ALTER TABLE `visitor` DISABLE KEYS */;
-INSERT INTO `visitor` VALUES ('05월 16일',90),('05월 17일',5),('05월 18일',10),('05월 19일',60),('05월 20일',30),('05월 21일',20),('05월 22일',14);
+INSERT INTO `visitor` VALUES ('05월 16일',90),('05월 17일',5),('05월 18일',10),('05월 19일',60),('05월 20일',30),('05월 21일',20),('05월 22일',14),('05월 23일',0);
 /*!40000 ALTER TABLE `visitor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,4 +206,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-12 16:12:21
+-- Dump completed on 2021-05-23 16:47:51
