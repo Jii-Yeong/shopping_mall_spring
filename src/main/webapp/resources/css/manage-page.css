@@ -5,25 +5,16 @@ html, body {
 	height: 100%;
 }
 
-header {
-	width: 100%;
-	height: 75px;
-	background-color: #000;
-	color: #fff;
-}
-
 .nav-inner {
 	width: 15%;
 	background-color: #123456;
 	height: 100%;
-	
 }
 
 .nav-inner ul li a {
 	font-size: 22px;
-	padding-left: 30px;
 	padding-top: 30px;
-	paddint-bottom: 30px;
+	padding-bottom: 30px;
 }
 
 .container-inner {
@@ -35,4 +26,93 @@ header {
 .tab-content {
 	width: 65%;
 	margin: 70px;
+}
+
+.navbar {
+    margin-bottom: 1px !important;
+    color: white !important;
+}
+
+.navbar-default {
+    background-color: rgb(141, 192, 236) !important;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: white !important;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white !important;
+}
+
+.navbar-default .navbar-brand {
+    color: white !important;
+}
+
+.left-nav {
+    background-color: rgb(182, 194, 211);
+    height: 100%;
+    width: 250px;
+}
+
+.left-nav {
+	padding: 0px 0px 0px 0px !important;
+}
+
+.left-nav a {
+    text-decoration: none;
+}
+
+.left-nav a:hover {
+ 	text-decoration: none;
+} 
+
+.nav-bar {
+    height: 57px;
+    border-bottom: 1px solid white;
+    text-align: center;
+    display: flex;
+}
+
+.nav-bar p {
+    color: white;
+    display: block;
+    margin-top: 18px;
+    margin-left: 35px;
+    font-size: 18px;
+
+}
+
+.user-manage-text, .product-manage-text {
+	margin-left: 32px !important;
+}
+
+.review-manage-text {
+	margin-left: 33px !important;
+}
+
+.fa-product-hunt, .fa-box, .fa-chart-bar, .fa-plus-square, .fa-sticky-note {
+    color: white;
+    font-size: 23px;
+    margin-left: 35px;
+    margin-top: 17px;
+}
+
+.fa-users {
+    color: white;
+    font-size: 20px;
+    margin-left: 35px;
+    margin-top: 17px;
+}
+
+.container {
+	position: absolute;
+	left: 16%;
+    top: 10%;
+}
+
+.chart--container {
+	position: absolute;
+	left: 16%;
+    top: 10%;
 }
