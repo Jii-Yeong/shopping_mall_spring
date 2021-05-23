@@ -109,6 +109,34 @@ INSERT INTO `product_upload` VALUES (1,'123','2021-05-23-15_54_23_b3bb4b30a79633
 UNLOCK TABLES;
 
 --
+-- Table structure for table `qna`
+--
+
+DROP TABLE IF EXISTS `qna`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `qna` (
+  `qna_num` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `writer` varchar(50) DEFAULT NULL,
+  `regDate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `viewCnt` int DEFAULT '0',
+  PRIMARY KEY (`qna_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qna`
+--
+
+LOCK TABLES `qna` WRITE;
+/*!40000 ALTER TABLE `qna` DISABLE KEYS */;
+INSERT INTO `qna` VALUES (1,'1','1',NULL,'2021-05-23 21:17:18',0),(2,'2','2',NULL,'2021-05-23 21:17:18',0),(3,'3','3',NULL,'2021-05-23 21:17:18',0),(4,'4','4',NULL,'2021-05-23 21:17:18',0),(5,'5','5',NULL,'2021-05-23 21:17:18',0),(6,'6','6',NULL,'2021-05-23 21:17:18',0),(7,'7','7',NULL,'2021-05-23 21:17:18',0),(8,'8','8',NULL,'2021-05-23 21:17:18',0),(9,'9','9',NULL,'2021-05-23 21:17:18',0),(10,'10','10',NULL,'2021-05-23 21:17:18',0),(11,'11','11',NULL,'2021-05-23 21:17:18',0),(12,'12','12',NULL,'2021-05-23 21:17:18',0),(13,'13','13',NULL,'2021-05-23 21:17:18',0),(14,'14','14',NULL,'2021-05-23 21:17:18',0),(15,'15','15',NULL,'2021-05-23 21:17:18',0),(16,'질문글 작성 멈춰!','멈춰!!',NULL,'2021-05-23 21:17:18',0);
+/*!40000 ALTER TABLE `qna` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `review`
 --
 
@@ -208,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-23 18:16:26
+-- Dump completed on 2021-05-23 21:17:51
