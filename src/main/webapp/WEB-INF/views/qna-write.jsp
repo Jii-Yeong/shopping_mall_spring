@@ -76,7 +76,7 @@
 	<!-- 글쓰기 페이지 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" action="/shopping_mall/qna/qna-writeAction">
+			<form method="post" action="/shopping_mall/qna/qna-writeAction" onsubmit="return(check());">
 <!-- 			<form method="post" action="/shopping_mall/qna"> -->
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
@@ -88,18 +88,48 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="50" required/></td>
+							<td><input type="text" class="form-control" placeholder="글 제목" name="title" id="title" maxlength="50"/>
+								
+							</td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px;" required></textarea></td>
+							<td><textarea class="form-control" placeholder="글 내용" name="content" id="content" maxlength="2048" style="height: 350px;"></textarea></td>
 						</tr>
 					</tbody>
 				</table>	
-				<input type="submit" class="btn btn-primary pull-right" value="글쓰기" />
+				<input type="submit" class="btn btn-primary pull-right" value="글쓰기"/>
 			</form>
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		function check() {
+			var titleCheck = document.getElementById('title');
+			var contentCheck = document.getElementById('content');
+			// null 금지
+			if (titleCheck.value == '' || titleCheck.value == null) {
+			    alert('제목을 입력해 주세요.');
+			    return false;
+			}
+			
+			if (contentCheck.value == '' || contentCheck.value == null) {
+			    alert('내용을 입력해 주세요.');
+			    return false;
+			}
+			// 공백만 입력 금지
+			var blank_pattern = /^\s+|\s+$/g;
+			if (titleCheck.value.replace( blank_pattern, '') == "") {
+			    alert('제목을 입력해 주세요.');
+			    return false;
+			}
+			
+			if (contentCheck.value.replace( blank_pattern, '') == "") {
+			    alert('내용을 입력해 주세요.');
+			    return false;
+			}
+		}
+	</script>
+								
 	<!-- 애니매이션 담당 JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<!-- 부트스트랩 JS  -->
