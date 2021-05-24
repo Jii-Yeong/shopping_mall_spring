@@ -81,10 +81,8 @@
 			</c:if>
 			<div class="row">
 				<c:if test="${ count > 0 }">
-
-
 					<table class="table table-striped"
-						style="text-align: center; border: 2px solid #dddddd">
+						style="text-align: center; border: 1px solid #dddddd">
 						<thead>
 							<tr>
 								<th style="background-color: #eeeeee; text-align: center;">번호</th>
