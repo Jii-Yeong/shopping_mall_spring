@@ -88,10 +88,10 @@
 						<thead>
 							<tr>
 								<th style="background-color: #eeeeee; text-align: center;">번호</th>
-								<th style="background-color: #eeeeee; text-align: center;">제목</th>
 								<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+								<th style="background-color: #eeeeee; text-align: center;">제목</th>
 								<th style="background-color: #eeeeee; text-align: center;">작성일</th>
-								<th style="background-color: #eeeeee; text-align: center;">조회수</th>
+<!-- 								<th style="background-color: #eeeeee; text-align: center;">조회수</th> -->
 							</tr>
 						</thead>
 
@@ -100,14 +100,16 @@
 							<tbody>
 								<tr>
 									<td>${read.qna_num}</td>
-									<c:if test="${read.writer = null}">
+									<c:if test="${read.writer == null}">
 										<td>GUEST</td>
 									</c:if>
-									<td>${read.title}</td>
+									<td>
+										<a href="/shopping_mall/qna/view?qna_num=${read.qna_num}">${read.title}</a>
+									</td>
 									<td>${read.writer}</td>
 									<td>${read.regDate}</td>
 <%-- 									<td><fmt:formatDate	value="${read.regDate}" pattern="yyyy-MM-dd a HH:mm" /></td> --%>
-									<td>${read.viewCnt}</td>
+<%-- 									<td>${read.viewCnt}</td> --%>
 								</tr>
 							</tbody>
 						</c:forEach>

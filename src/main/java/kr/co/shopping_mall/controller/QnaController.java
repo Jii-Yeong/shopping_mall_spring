@@ -58,6 +58,14 @@ public class QnaController {
 		return "redirect:/qna";
 	}
 
+	// 게시글 보기
+	@GetMapping("/view")
+	public String getView(@RequestParam("qna_num") int qna_num, Model model) throws Exception {
+		Qna qna = service.view(qna_num);
+		model.addAttribute("view", qna);
+		return "qna-view";
+	}
+	
 	@RequestMapping("update")
 	public String modify(@ModelAttribute("board") Qna qna) {
 		service.update(qna);
