@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.shopping_mall.dao.QnaDao;
@@ -46,6 +45,7 @@ public class QnaController {
 	@GetMapping("/qna-write")
 	public String addQnaGet(Qna qna, Model model) throws Exception {
 		System.out.println("addQna, GET방식 입니다.");
+		System.out.println(qna.toString());
 		return "qna-write";
 	}
 	
