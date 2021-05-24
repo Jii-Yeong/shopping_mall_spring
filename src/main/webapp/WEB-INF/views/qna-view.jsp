@@ -3,6 +3,7 @@
 <%@ page import="java.io.PrintWriter"%>
 <%@page import="kr.co.shopping_mall.dao.QnaDao"%>
 <%@page import="kr.co.shopping_mall.model.Qna"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +11,12 @@
 <!-- 뷰포트 -->
 <meta name="viewport" content="width=device-width" initial-scale="1">
 <!-- 스타일시트 참조  -->
-<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <title>Q & A</title>
 </head>
 <body>
 
-	<% //로긴한사람이라면	 userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
+	<%-- <% //로긴한사람이라면	 userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
 		String userID = null;
 	
 		if (session.getAttribute("userID") != null) {
@@ -37,7 +38,7 @@
 
 // 		Qna qna = new QnaDao().getQna(bbsID);
 
-	%>
+	%> --%>
 
 	<!-- 네비게이션  -->
 	<nav class="navbar navbar-default">
@@ -48,15 +49,15 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp">메인페이지</a>
+			<a class="navbar-brand" href="/shopping_mall">메인페이지</a>
 		</div>
 		<div class="collapse navbar-collapse"
 			id="#bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="qna-board.jsp">Q & A 게시판</a></li>
+				<li class="active"><a href="/shopping_mall/qna">Q & A 게시판</a></li>
 			</ul>
 
-			<% //라긴안된경우
+			<%-- <% // 로긴안된경우
 				if (userID == null) {
 			%>
 
@@ -73,7 +74,7 @@
 
 			<%
 				} else {
-			%>
+			%> --%>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -85,9 +86,9 @@
 				</li>
 			</ul>
 
-			<%
+			<%-- <%
 				}
-			%>
+			%> --%>
 
 		</div>
 	</nav>
@@ -107,6 +108,7 @@
 					<tr>
 						<td style="width: 20%;"> 글 제목 </td>
 						<td colspan="2">
+							${ view.title }
 <%-- 							<%= qna.getTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;") --%>
 <%-- 									.replaceAll(">", "&gt;").replaceAll("\n", "<br/>") %> --%>
 <%-- 							<%= qna.getTitle() %> --%>
@@ -114,17 +116,23 @@
 					</tr>
 					<tr>
 						<td>작성자</td>	
-<%-- 						<td colspan="2"><%= qna.getQna_Num() %></td> --%>
+						<td colspan="2">
+							<c:if test="${ view.writer == null }">
+								GUEST
+							</c:if>
+<%-- 						<%= qna.getQna_Num() %> --%>
+						</td>
 <!-- 					</tr> -->
 <!-- 					<tr> -->
 <!-- 						<td>작성일</td>	 -->
 <%-- 						<td colspan="2"><%= qna.getDate().substring(0, 11) --%>
-// 						+ qna.getDate().substring(11, 13) + "시"
+<!-- // 						+ qna.getDate().substring(11, 13) + "시" -->
 <%-- 						+ qna.getDate().substring(14, 16) + "분"%></td> --%>
 					</tr>
 					<tr>
 						<td>내용</td>	
 						<td colspan="2" style="min-height: 200px; text-align: left;">
+							${ view.content }
 <%-- 							<%= qna.getContent().replaceAll(" ", "&nbsp;") --%>
 <%-- 									.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br/>") %> --%>
 <%-- 							<%= qna.getContent() %> --%>
@@ -132,17 +140,17 @@
 					</tr>
 				</tbody>
 			</table>	
-			<a href = "qna-board.jsp" class="btn btn-primary">목록</a>
+			<a href = "/shopping_mall/qna" class="btn btn-primary">목록</a>
 
 <%-- 			<% //글작성자 본인일시 수정 삭제 가능  --%>
-// 				if(userID != null && userID.equals(qna.getId())){
+<!-- // 				if(userID != null && userID.equals(qna.getId())){ -->
 <%-- 			%> --%>
 
 <%-- 					<a href="update.jsp?bbsID=<%= bbsID %>" class="btn btn-primary">수정</a> --%>
 <%-- 					<a href="delete.jsp?bbsID=<%= bbsID %>" class="btn btn-primary">삭제</a> --%>
 
 <%-- 			<%					 --%>
-// 				}
+<!-- // 				} -->
 <%-- 			%> --%>
 				
 		</div>
@@ -150,6 +158,6 @@
 	<!-- 애니매이션 담당 JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<!-- 부트스트랩 JS  -->
-	<script src="js/bootstrap/bootstrap.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
 </body>
 </html>
