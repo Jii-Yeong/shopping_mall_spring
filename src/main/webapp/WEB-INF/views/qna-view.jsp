@@ -15,31 +15,6 @@
 <title>Q & A</title>
 </head>
 <body>
-
-	<%-- <% //로긴한사람이라면	 userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
-		String userID = null;
-	
-		if (session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-		}
-		
-		int bbsID = 0;
-		
-		if (request.getParameter("bbsID") != null) {
-			bbsID = Integer.parseInt(request.getParameter("bbsID"));
-		}
-		if (bbsID == 0) {
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('유효하지 않은 글 입니다.')");
-			script.println("location.href = 'bbs.jsp'");
-			script.println("</script>");
-		}
-
-// 		Qna qna = new QnaDao().getQna(bbsID);
-
-	%> --%>
-
 	<!-- 네비게이션  -->
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -56,26 +31,6 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="/shopping_mall/qna">Q & A 게시판</a></li>
 			</ul>
-
-			<%-- <% // 로긴안된경우
-				if (userID == null) {
-			%>
-
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.html">로그인</a></li>
-						<li><a href="register.html">회원가입</a></li>
-					</ul>
-				</li>
-			</ul>
-
-			<%
-				} else {
-			%> --%>
-
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -85,11 +40,6 @@
 					</ul>
 				</li>
 			</ul>
-
-			<%-- <%
-				}
-			%> --%>
-
 		</div>
 	</nav>
 	
@@ -100,59 +50,45 @@
 				style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
-						<th colspan="3"
+						<th colspan="4"
 							style="background-color: #eeeeee; text-align: center;">글 보기 </th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td style="width: 20%;"> 글 제목 </td>
-						<td colspan="2">
-							${ view.title }
-<%-- 							<%= qna.getTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;") --%>
-<%-- 									.replaceAll(">", "&gt;").replaceAll("\n", "<br/>") %> --%>
-<%-- 							<%= qna.getTitle() %> --%>
-						</td>
-					</tr>
-					<tr>
-						<td>작성자</td>	
-						<td colspan="2">
+						<td width="150">작성자</td>	
+						<td style="text-align: left; border: 1px solid #dddddd">
 							<c:if test="${ view.writer == null }">
 								GUEST
 							</c:if>
-<%-- 						<%= qna.getQna_Num() %> --%>
+							<c:if test="${view.writer != null}">
+								<td>${view.writer}</td>
+							</c:if>
 						</td>
-<!-- 					</tr> -->
-<!-- 					<tr> -->
-<!-- 						<td>작성일</td>	 -->
-<%-- 						<td colspan="2"><%= qna.getDate().substring(0, 11) --%>
-<!-- // 						+ qna.getDate().substring(11, 13) + "시" -->
-<%-- 						+ qna.getDate().substring(14, 16) + "분"%></td> --%>
+						<td width="10%">글 번호</td>	
+						<td style="text-align: left; border: 1px solid #dddddd; width: 20%;">
+							${ view.qna_num }
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 10%;"> 글 제목 </td>
+						<td colspan="3" style="text-align: left; border: 1px solid #dddddd">
+							${ view.title }
+						</td>
 					</tr>
 					<tr>
 						<td>내용</td>	
-						<td colspan="2" style="min-height: 200px; text-align: left;">
+						<td colspan="3" style="min-height: 200px; text-align: left; border: 1px solid #dddddd">
 							${ view.content }
-<%-- 							<%= qna.getContent().replaceAll(" ", "&nbsp;") --%>
-<%-- 									.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br/>") %> --%>
-<%-- 							<%= qna.getContent() %> --%>
 						</td>
 					</tr>
 				</tbody>
-			</table>	
-			<a href = "/shopping_mall/qna" class="btn btn-primary">목록</a>
-
-<%-- 			<% //글작성자 본인일시 수정 삭제 가능  --%>
-<!-- // 				if(userID != null && userID.equals(qna.getId())){ -->
-<%-- 			%> --%>
-
-<%-- 					<a href="update.jsp?bbsID=<%= bbsID %>" class="btn btn-primary">수정</a> --%>
-<%-- 					<a href="delete.jsp?bbsID=<%= bbsID %>" class="btn btn-primary">삭제</a> --%>
-
-<%-- 			<%					 --%>
-<!-- // 				} -->
-<%-- 			%> --%>
-				
+			</table>
+			<form method="post">
+				<a href="/shopping_mall/qna" class="btn btn-primary">목록</a>
+				<a href="/shopping_mall/qna/update?bno=${view.qna_num}" class="btn btn-primary">수정</a>
+				<a href="/shopping_mall/qna/delete" class="btn btn-primary">삭제</a>
+			</form>
 		</div>
 	</div>
 	<!-- 애니매이션 담당 JQUERY -->
