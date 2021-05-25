@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.shopping_mall.dao.QnaDao;
@@ -27,7 +27,7 @@ public class QnaController {
 			ReviewPagination pagination) {
 		int total = service.qnaCount();
 		System.out.println("요청페이지 : " + nowPage);
-		System.out.println("토탈 : " + total);
+		System.out.println("전체 글 갯수 : " + total);
 		if (nowPage == null) {
 			nowPage = "1";
 		}
@@ -36,8 +36,6 @@ public class QnaController {
 		model.addAttribute("count", service.qnaCount());
 		model.addAttribute("paging", pagination);
 		model.addAttribute("read", service.qnaRead(pagination.getStartRow() - 1));
-		System.out.println("시작 limit : " + pagination.getStartRow());
-		System.out.println("끝 limit : " + pagination.getEndRow());
 		return "/qna-board";
 	}
 	
@@ -62,19 +60,31 @@ public class QnaController {
 	@GetMapping("/view")
 	public String getView(@RequestParam("qna_num") int qna_num, Model model) throws Exception {
 		Qna qna = service.view(qna_num);
+		System.out.println("조회하려는 글의 번호 : " + qna_num);
 		model.addAttribute("view", qna);
 		return "qna-view";
 	}
 	
-	@RequestMapping("update")
-	public String modify(@ModelAttribute("board") Qna qna) {
+	
+	// 게시글 수정3
+	@RequestMapping(value="/update", method = RequestMethod.GET)
+	public String modify(@RequestParam("qna_num") int qna_num, Model model) throws Exception {
+		System.out.println("테스트1");
+		Qna qna = service.view(qna_num);
+		model.addAttribute("view", qna);
+		System.out.println("테스트2, " + qna_num);
+		return "qna-update";
+	}
+	
+	@PostMapping("qna-updateAction")
+	public String modifyPost(Qna qna, Model model) throws Exception {
 		service.update(qna);
-		return "redirect:list";
+		return "redirect:/qna";
 	}
 
 	@RequestMapping("delete")
-	public String delete(@RequestParam("bno") int qna_num) {
+	public String delete(@RequestParam("qna_num") int qna_num) {
 		service.delete(qna_num);
-		return "board/view";
+		return "redirect:/qna";
 	}
 }

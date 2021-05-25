@@ -77,7 +77,6 @@
 	<div class="container">
 		<div class="row">
 			<form method="post" action="/shopping_mall/qna/qna-writeAction" onsubmit="return(check());">
-<!-- 			<form method="post" action="/shopping_mall/qna"> -->
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
 					<thead>
@@ -88,12 +87,20 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" name="title" id="title" maxlength="50"/>
-								
+							<td>
+								<div class="col-xs-6 col-sm-3">
+										<input type="text" class="form-control" placeholder="닉네임" name="id" id="id" style="height: 25px; width: 200px;"/>
+								</div>
+								<div class="col-xs-6 col-sm-3">
+										<input type="password" class="form-control" placeholder="비밀번호" name="password" id="password" style="height: 25px; width: 200px;"/>
+								</div>
 							</td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="content" id="content" maxlength="2048" style="height: 350px;"></textarea></td>
+							<td><input type="text" class="form-control" placeholder="글 제목" name="title" id="title" maxlength="50"/></td>
+						</tr>
+						<tr>
+							<td><input class="form-control" placeholder="글 내용" name="content" id="content" maxlength="2048" style="height: 350px;"/></td>
 						</tr>
 					</tbody>
 				</table>	
@@ -102,6 +109,7 @@
 		</div>
 	</div>
 
+	<!-- 빈칸만 입력 막는 js함수 -->
 	<script type="text/javascript">
 		function check() {
 			var titleCheck = document.getElementById('title');
@@ -117,13 +125,13 @@
 			    return false;
 			}
 			// 공백만 입력 금지
-			var blank_pattern = /^\s+|\s+$/g;
-			if (titleCheck.value.replace( blank_pattern, '') == "") {
+			var blank_pattern = /^\s+|\s+$/g; // 정규표현식, 앞뒤 공백 제거
+			if (titleCheck.value.replace(blank_pattern, '') == "") {
 			    alert('제목을 입력해 주세요.');
 			    return false;
 			}
 			
-			if (contentCheck.value.replace( blank_pattern, '') == "") {
+			if (contentCheck.value.replace(blank_pattern, '') == "") {
 			    alert('내용을 입력해 주세요.');
 			    return false;
 			}

@@ -10,7 +10,7 @@
 <!-- 뷰포트 -->
 <meta name="viewport" content="width=device-width" initial-scale="1">
 <!-- 스타일시트 참조  -->
-<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.css">
 <title>Q & A</title>
 </head>
 <body>
@@ -64,17 +64,17 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp">메인페이지</a>
+			<a class="navbar-brand" href="/shopping_mall">메인페이지</a>
 		</div>
 		<div class="collapse navbar-collapse"
 			id="#bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="qna">게시판</a></li>
+				<li class="active"><a href="/shopping_mall/qna">Q & A 게시판</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">회원관리<span class="caret"></span></a>
+					aria-expanded="false">MENU<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
 					</ul>
@@ -84,10 +84,9 @@
 	</nav>
 
 	<!-- 게시판 --> 
-
 	<div class="container">
 		<div class="row">
-<%-- 			<form method="post" action="updateAction.jsp?bbsID=<%= bbsID %> "> --%>
+			<form method="post" action="/shopping_mall/qna/qna-updateAction" onsubmit="return(check());">
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
 					<thead>
@@ -99,15 +98,24 @@
 					<tbody>
 						<tr>
 							<td>
-<!-- 								<input type="text" class="form-control" placeholder="글 제목" -->
-<%-- 										name="bbsTitle" maxlength="50" value="<%= qna.getTitle() %>" > --%>
+								<div class="col-xs-6 col-sm-3">
+										<input type="text" class="form-control" placeholder="닉네임" name="id" id="id" style="height: 25px; width: 200px;"/>
+								</div>
+								<div class="col-xs-6 col-sm-3">
+										<input type="password" class="form-control" placeholder="비밀번호" name="password" id="password" style="height: 25px; width: 200px;"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" class="form-control" placeholder="글 제목"
+										name="bbsTitle" maxlength="50" >
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<textarea class="form-control" placeholder="글 내용"
 										name="bbsContent" maxlength="2048" style="height: 350px;" >
-<%-- 										<%= qna.getContent() %> --%>
 								</textarea>
 							</td>
 						</tr>
@@ -118,9 +126,38 @@
 		</div>
 	</div>
 
+	<!-- 빈칸만 입력 막는 js함수 -->
+	<script type="text/javascript">
+		function check() {
+			var titleCheck = document.getElementById('title');
+			var contentCheck = document.getElementById('content');
+			// null 금지
+			if (titleCheck.value == '' || titleCheck.value == null) {
+			    alert('제목을 입력해 주세요.');
+			    return false;
+			}
+			
+			if (contentCheck.value == '' || contentCheck.value == null) {
+			    alert('내용을 입력해 주세요.');
+			    return false;
+			}
+			// 공백만 입력 금지
+			var blank_pattern = /^\s+|\s+$/g; // 정규표현식, 앞뒤 공백 제거
+			if (titleCheck.value.replace(blank_pattern, '') == "") {
+			    alert('제목을 입력해 주세요.');
+			    return false;
+			}
+			
+			if (contentCheck.value.replace(blank_pattern, '') == "") {
+			    alert('내용을 입력해 주세요.');
+			    return false;
+			}
+		}
+	</script>
+	
 	<!-- 애니매이션 담당 JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<!-- 부트스트랩 JS  -->
-	<script src="js/bootstrap/bootstrap.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
 </body>
 </html>

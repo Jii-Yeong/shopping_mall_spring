@@ -2,8 +2,6 @@ package kr.co.shopping_mall.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +30,7 @@ public class QnaDao {
 			String content = rs.getString("content");
 			Date date = rs.getDate("regDate");
 			int viewCnt = rs.getInt("viewCnt");
-			
+
 			return new Qna(qna_num, writer, title, content, date, viewCnt);
 		}
 	}
@@ -61,19 +59,19 @@ public class QnaDao {
 
 	// 조회수 증가
 	public int updateViewCnt(int qna_num) {
-		return jdbcTemplate.update("UPDATE qna SET viewCnt = viewCnt + 1" + " WHERE qna_num = ?", qna_num);
+		return jdbcTemplate.update("UPDATE qna SET viewCnt = viewCnt + 1 WHERE qna_num = ?", qna_num);
 	}
 
 	// qna 추가
 	public int addQna(Qna qna) {
-		return jdbcTemplate.update("INSERT INTO qna(writer, title, content)" + " VALUES (?, ?, ?)", qna.getWriter(),
+		return jdbcTemplate.update("INSERT INTO qna(writer, title, content) VALUES (?, ?, ?)", qna.getWriter(),
 				qna.getTitle(), qna.getContent());
 	}
 
 	// qna 업데이트
 	public int update(Qna qna) {
-		return jdbcTemplate.update("UPDATE qna SET writer = ?, title = ?, content = ?" + " WHERE qna_num = ?", qna.getWriter(),
-				qna.getTitle(), qna.getContent(), qna.getQna_num());
+		return jdbcTemplate.update("UPDATE qna SET writer = ?, title = ?, content = ? WHERE qna_num = ?",
+				qna.getWriter(), qna.getTitle(), qna.getContent(), qna.getQna_num());
 	}
 
 	// qna 삭제
