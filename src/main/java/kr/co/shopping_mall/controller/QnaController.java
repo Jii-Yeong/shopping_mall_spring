@@ -78,14 +78,14 @@ public class QnaController {
 	
 	@PostMapping("qna-updateAction")
 	public String modifyPost(@RequestParam("qna_num") int qna_num, Qna qna, Model model) throws Exception {
-		System.out.println("넘확인 : " + qna_num);
 		service.update(qna);
 		System.out.println("qna-updataAction, " + qna.toString());
 		return "redirect:/qna";
 	}
 
 	@RequestMapping("delete")
-	public String delete(@RequestParam("qna_num") int qna_num) {
+	public String delete(@RequestParam("qna_num") int qna_num, Model model) {
+		System.out.println("Controller.delete");
 		service.delete(qna_num);
 		return "redirect:/qna";
 	}
