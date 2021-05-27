@@ -76,6 +76,6 @@ public class QnaDao {
 
 	// qna 삭제
 	public int delete(int qna_num) {
-		return jdbcTemplate.update("DELETE FROM qna WHERE qna_num = ", qna_num);
+		return jdbcTemplate.update("DELETE FROM qna WHERE qna_num = ?", qna_num);
 	}
 }
