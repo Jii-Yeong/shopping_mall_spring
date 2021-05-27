@@ -61,8 +61,8 @@
 							<c:if test="${ view.writer == null }">
 								GUEST
 							</c:if>
-							<c:if test="${view.writer != null}">
-								<td>${view.writer}</td>
+							<c:if test="${ view.writer != null }">
+								<td>${ view.writer }</td>
 							</c:if>
 						</td>
 						<td width="10%">글 번호</td>	
@@ -86,8 +86,8 @@
 			</table>
 			<form method="post">
 				<a href="/shopping_mall/qna" class="btn btn-primary">목록</a>
-				<a href="/shopping_mall/qna/update?bno=${view.qna_num}" class="btn btn-primary">수정</a>
-				<a href="/shopping_mall/qna/delete" class="btn btn-primary">삭제</a>
+				<a href="/shopping_mall/qna/update?qna_num=${view.qna_num}" class="btn btn-primary">수정</a>
+				<a href="/shopping_mall/qna/delete?qna_num=${view.qna_num}" class="btn btn-primary">삭제</a>
 			</form>
 		</div>
 	</div>

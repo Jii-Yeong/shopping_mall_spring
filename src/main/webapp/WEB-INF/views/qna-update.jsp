@@ -104,19 +104,19 @@
 								<div class="col-xs-6 col-sm-3">
 										<input type="password" class="form-control" placeholder="비밀번호" name="password" id="password" style="height: 25px; width: 200px;"/>
 								</div>
+								<!-- qna_num을 받아오기위한 hidden타입 인풋 -->
+								<input type="hidden" name="qna_num" value="${ view.qna_num }"/>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input type="text" class="form-control" placeholder="글 제목"
-										name="bbsTitle" maxlength="50" >
+										name="title" id="title" maxlength="50" >
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<textarea class="form-control" placeholder="글 내용"
-										name="bbsContent" maxlength="2048" style="height: 350px;" >
-								</textarea>
+								<textarea class="form-control" placeholder="글 내용" name="content" id="content" maxlength="2048" style="height: 350px;" ></textarea>
 							</td>
 						</tr>
 					</tbody>

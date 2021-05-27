@@ -70,8 +70,8 @@ public class QnaDao {
 
 	// qna 업데이트
 	public int update(Qna qna) {
-		return jdbcTemplate.update("UPDATE qna SET writer = ?, title = ?, content = ? WHERE qna_num = ?",
-				qna.getWriter(), qna.getTitle(), qna.getContent(), qna.getQna_num());
+		return jdbcTemplate.update("UPDATE qna SET title = ?, content = ? WHERE qna_num = ?",
+				qna.getTitle(), qna.getContent(), qna.getQna_num());
 	}
 
 	// qna 삭제

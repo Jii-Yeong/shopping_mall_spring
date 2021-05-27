@@ -42,7 +42,7 @@ public class QnaController {
 //	@RequestMapping(value="/qna-write", method = RequestMethod.GET)
 	@GetMapping("/qna-write")
 	public String addQnaGet(Qna qna, Model model) throws Exception {
-		System.out.println("addQna, GET방식 입니다.");
+		System.out.println("qna-write, GET방식 입니다.");
 		System.out.println(qna.toString());
 		return "qna-write";
 	}
@@ -60,25 +60,27 @@ public class QnaController {
 	@GetMapping("/view")
 	public String getView(@RequestParam("qna_num") int qna_num, Model model) throws Exception {
 		Qna qna = service.view(qna_num);
-		System.out.println("조회하려는 글의 번호 : " + qna_num);
+		System.out.println("Controller, 조회하려는 글의 번호 : " + qna_num);
 		model.addAttribute("view", qna);
 		return "qna-view";
 	}
 	
 	
-	// 게시글 수정3
+	// 게시글 수정
 	@RequestMapping(value="/update", method = RequestMethod.GET)
 	public String modify(@RequestParam("qna_num") int qna_num, Model model) throws Exception {
-		System.out.println("테스트1");
 		Qna qna = service.view(qna_num);
 		model.addAttribute("view", qna);
-		System.out.println("테스트2, " + qna_num);
+		System.out.println("Controller, 수정하려는 글의 번호 : " + qna_num);
+		System.out.println(qna.toString());
 		return "qna-update";
 	}
 	
 	@PostMapping("qna-updateAction")
-	public String modifyPost(Qna qna, Model model) throws Exception {
+	public String modifyPost(@RequestParam("qna_num") int qna_num, Qna qna, Model model) throws Exception {
+		System.out.println("넘확인 : " + qna_num);
 		service.update(qna);
+		System.out.println("qna-updataAction, " + qna.toString());
 		return "redirect:/qna";
 	}
 
