@@ -26,6 +26,9 @@ Spring을 활용한 쇼핑몰 웹 사이트 구현
 - 관리자 페이지<br>
 ![관리페이지](https://user-images.githubusercontent.com/79301442/119251111-af6a1c00-bbdf-11eb-8b15-36f493466d8d.gif)
 
+- Q & A 페이지<br>
+![Q & A](https://user-images.githubusercontent.com/79522096/119773875-4266c700-befc-11eb-89f1-c29f2d38f609.gif)
+
 
 - 리뷰 페이지<br>
 ![리뷰](https://user-images.githubusercontent.com/57383657/118613183-77d32c80-b7f9-11eb-8e78-0b724be4d86e.gif)
